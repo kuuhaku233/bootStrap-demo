@@ -2,6 +2,7 @@ package com.bst.controller;
 
 import com.bst.pojo.User;
 import com.bst.service.UserService;
+import com.bst.util.DataTableUtil;
 import org.apache.shiro.web.session.HttpServletSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user/")
@@ -27,11 +30,29 @@ public class TestController {
         }
         return "pages-login";
     }
+
     @RequestMapping("findAll")
-    public String getSysUsers(HttpServletRequest request) {
-        List<User> listsus=userService.getUsers();
-        request.setAttribute("users",listsus);
-        return "sysuser";
+    @ResponseBody
+    public DataTableUtil<User> getSysUsers(String start, String length) {
+        DataTableUtil<User> users=userService.getUsers(start,length);
+        return  users;
+    }
+
+    @RequestMapping("add")
+    @ResponseBody
+    public Boolean saveUser(User user)
+    {
+        return userService.saveUser(user);
+    }
+
+    @RequestMapping("userName")
+    @ResponseBody
+    public Map<String,Boolean> getUserName(String userName)
+    {
+        Boolean flag = userService.getUserName(userName);
+        Map<String,Boolean> maps =new HashMap<>();
+        maps.put("valid", flag);
+        return maps;
 
     }
 

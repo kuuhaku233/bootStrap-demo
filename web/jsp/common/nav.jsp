@@ -16,8 +16,8 @@
                                             <span class="pull-right dropdown-toggle">
                                                 <i class="dropdown-caret"></i>
                                             </span>
-                                <p class="mnp-name">张三</p>
-                                <span class="mnp-desc">577788888@qq.com</span>
+                                <p class="mnp-name">赵四</p>
+                                <span class="mnp-desc">qq945563719@163.com</span>
                             </a>
                         </div>
                         <div id="profile-nav" class="collapse list-group bg-trans">
@@ -78,7 +78,6 @@
                     <ul id="mainnav-menu" class="list-group">
 
                         <!--Category name-->
-                        <li class="list-header">系统管理</li>
 
                         <!--Menu list item-->
                         <li class="active-sub">
@@ -90,9 +89,9 @@
 
                             <!--Submenu-->
                             <ul class="collapse in">
-                                <li class="active-link"><a href="../user/findAll">用户管理</a></li>
-                                <li><a href="dashboard-2.html">角色管理</a></li>
-                                <li><a href="dashboard-3.html">资源管理</a></li>
+                                <li class="active-link"><a href="../jsp/sysuser.jsp">用户管理</a></li>
+                                <li><a href="../jsp/sysrole.jsp">角色管理</a></li>
+                                <li><a href="../jsp/sysresource.jsp">资源管理</a></li>
                                 <li><a href="dashboard-3.html">权限管理</a></li>
 
                             </ul>

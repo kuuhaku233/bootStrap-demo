@@ -1,6 +1,7 @@
 package com.bst.dao;
 
 import com.bst.pojo.User;
+import com.bst.util.DataTableUtil;
 
 import java.util.List;
 
@@ -13,6 +14,10 @@ public interface UserDao {
     /*
         获取所有用户信息
      */
-    List<User> getUsers();
+    DataTableUtil<User> getUsers(String start, String length);
+
+    Boolean saveUser(User user);
+
+    Boolean getUserName(String userName);
 
 }

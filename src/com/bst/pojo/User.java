@@ -1,23 +1,27 @@
 package com.bst.pojo;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.sql.Timestamp;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 public class User {
+
     private Integer userId;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date lastLongTime;
+
     private Integer status;
+
     private String userName;
+
     private String userPwd;
 
     @Id
-    @Column(name = "userId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId", unique = true, nullable = false)
     public Integer getUserId() {
         return userId;
     }
@@ -66,21 +70,4 @@ public class User {
         this.userPwd = userPwd;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(userId, user.userId) &&
-                Objects.equals(lastLongTime, user.lastLongTime) &&
-                Objects.equals(status, user.status) &&
-                Objects.equals(userName, user.userName) &&
-                Objects.equals(userPwd, user.userPwd);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(userId, lastLongTime, status, userName, userPwd);
-    }
 }
