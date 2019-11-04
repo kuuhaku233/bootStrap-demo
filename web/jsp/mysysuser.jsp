@@ -1362,6 +1362,8 @@
     <%--  表单验证插件引入 js --%>
     <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
 
+
+
     <%-- 注册 修改操作 表单验证 --%>
     <script>
         $(function () {
