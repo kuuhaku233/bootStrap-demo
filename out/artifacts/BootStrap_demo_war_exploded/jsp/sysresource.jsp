@@ -11,15 +11,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <title>资源管理页面</title>
 
 
     <!--STYLESHEET-->
     <!--=================================================-->
-    <link rel="shortcuticon" href="img/horse.ico"/>
 
-    <link rel="Shortcut Icon" href="img/horse.ico" type="image/x-icon"/>
+
     <!--Open Sans Font [ OPTIONAL ]-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 
@@ -48,6 +47,10 @@
 
     <%--  表单验证的css --%>
     <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+
+    <!--JSTree [ OPTIONAL ]-->
+    <link href="plugins/jstree/themes/default/style.min.css" rel="stylesheet">
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
 </head>
 
@@ -106,10 +109,12 @@
                                width="100%">
                             <thead>
                             <tr>
+                                <th></th>
                                 <th class="min-desktop">资源名称</th>
                                 <th class="min-desktop">资源链接</th>
                                 <th class="min-desktop">资源图标</th>
                                 <th class="min-desktop">资源级别</th>
+                                <th class="min-desktop">资源所属</th>
                                 <th class="min-desktop">操作</th>
                             </tr>
                             </thead>
@@ -118,6 +123,89 @@
                     </div>
                 </div>
                 <!-- ajax方式获取数据表格 -->
+
+                <%-- JS Tree获取资源数据 --%>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Custom Icon (Font Awesome)</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="demo-jstree-3">
+                            <ul>
+                                <li class="jstree-open">Admin theme
+                                    <ul>
+                                        <li class="jstree-open">demo
+                                            <ul>
+                                                <li class="jstree-open">basic
+                                                    <ul>
+                                                        <li data-jstree='{"type":"html"}'>index.html</li>
+                                                        <li data-jstree='{"type":"file"}'>root.json</li>
+                                                    </ul>
+                                                </li>
+                                                <li data-jstree='{"type":"file"}'>Readme.md</li>
+                                            </ul>
+                                        </li>
+                                        <li>dist
+                                            <ul>
+                                                <li class="jstree-open">theme
+                                                    <ul>
+                                                        <li class="jstree-open">default
+                                                            <ul>
+                                                                <li data-jstree='{"type":"jpg"}'>32px.png</li>
+                                                                <li data-jstree='{"type":"jpg"}'>40px.png</li>
+                                                                <li data-jstree='{"type":"file"}'>style.css</li>
+                                                                <li data-jstree='{"type":"file"}'>style.min.css</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li>default-dark
+                                                            <ul>
+                                                                <li data-jstree='{"type":"jpg"}'>32px.png</li>
+                                                                <li data-jstree='{"type":"jpg"}'>40px.png</li>
+                                                                <li data-jstree='{"type":"file"}'>style.css</li>
+                                                                <li data-jstree='{"type":"file"}'>style.min.css</li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li data-jstree='{"type":"file"}'>jstree.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.min.js</li>
+                                            </ul>
+                                        </li>
+                                        <li>src
+                                            <ul>
+                                                <li data-jstree='{"type":"file"}'>intro.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.changed.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.checkbox.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.conditionalselect.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.contextmenu.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.dnd.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.massload.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.search.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.sort.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.state.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.types.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.unique.js</li>
+                                                <li data-jstree='{"type":"file"}'>jstree.wholerow.js</li>
+                                                <li data-jstree='{"type":"file"}'>misc.js</li>
+                                                <li data-jstree='{"type":"file"}'>outro.js</li>
+                                                <li data-jstree='{"type":"file"}'>sample.js</li>
+                                                <li data-jstree='{"type":"file"}'>themes</li>
+                                                <li data-jstree='{"type":"file"}'>vakata-jstree.js</li>
+                                            </ul>
+                                        </li>
+                                        <li>unit</li>
+                                        <li>visual</li>
+                                        <li data-jstree='{"type":"zip"}'>package.zip</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <%-- JS Tree获取资源数据 --%>
 
 
             </div>
@@ -332,6 +420,8 @@
 
 <%--  表单验证插件引入 js --%>
 <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+<!--JSTree [ OPTIONAL ]-->
+<script src="plugins/jstree/jstree.min.js"></script>
 
 <%-- 注册 修改操作 表单验证 --%>
 <script>
@@ -381,99 +471,94 @@
 
     $(document).ready(function () {
         $('#resource-table').dataTable({
-                "ordering": false,  //关闭排序功能
-                "searching": true,  // false  关闭搜索框
-                "ajax": {
-                    "url": "",
-                    //默认为data,这里定义为空，则只需要传不带属性的数据
-                    "dataSrc": ""
+            "ordering": false,  //关闭排序功能
+            "searching": true,  // false  关闭搜索框
+            "ajax": {
+                "url": "../system/getresource",
+                //默认为data,这里定义为空，则只需要传不带属性的数据
+                "dataSrc": ""
+            },
+            "columns": [
+                {
+                    "data": "reid",
+                    "visible": false
+                    // visible:false 单独隐藏列"visible": false
                 },
-                "columns": [
+                {"data": "resourcename"},
+                {"data": "relink"},
+                {"data": "rebianhao"},
+                {
+                    "data": "rejigouid", render:
+                        function (data) {
+                            if (data == 0) {
+                                return '<span style="color: red;font-weight: bold">一级资源</span>'
+                            } else if (data == 1) {
+                                return "二级资源"
+                            }
+                            else {
+                                return "三级资源"
+                            }
+                        }
+                },
+                {"data": "reopjigouid", orderable: false},
+                {
+                    "data": null
+                    ,
+                    /*defaultContent  添加默认值*/
+                    defaultContent: '<a href="javascript::##" class="xiugai"><i class="myfont icon-tianxie"></i></a>' +
+                    '<a href="javascript::##" class="delbtn"><i class="myfont icon-shanchu"></i></a>' +
+                    '<a href="javascript::##" class="showbtn"><i class="myfont icon-sousuo"></i></a>',
+                    orderable: false  //关闭该列数据排序
+                }
+            ],
+            language: {
+                "sProcessing":
+                    "处理中...",
+                "sLengthMenu":
+                    "显示 _MENU_ 项结果",
+                "sZeroRecords":
+                    "没有匹配结果",
+                "sInfo":
+                    "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty":
+                    "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered":
+                    "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix":
+                    "",
+                "sSearch":
+                    "搜索:",
+                "sUrl":
+                    "",
+                "sEmptyTable":
+                    "表中数据为空",
+                "sLoadingRecords":
+                    "载入中...",
+                "sInfoThousands":
+                    ",",
+                "oPaginate":
                     {
-                        "data": "reid",
-                        "visible": false
-                        // visible:false 单独隐藏列"visible": false
-                    },
-                    {"data": "resourcename"},
-                    {"data": "rebianhao"},
-                    {"data": "rejigouid", orderable: false},
-            {
-                "data": rejigouid,
-                /*defaultContent  添加默认值*/
-                defaultContent: '<a href="javascript::##" class="xiugai"><i class="myfont icon-tianxie"></i></a>' +
-                '<a href="javascript::##" class="delbtn"><i class="myfont icon-shanchu"></i></a>' +
-                '<a href="javascript::##" class="showbtn"><i class="myfont icon-sousuo"></i></a>',
-                orderable: false  //关闭该列数据排序
+                        "sFirst":
+                            "首页",
+                        "sPrevious":
+                            "上页",
+                        "sNext":
+                            "下页",
+                        "sLast":
+                            "末页"
+                    }
+                ,
+                "oAria":
+                    {
+                        "sSortAscending":
+                            ": 以升序排列此列",
+                        "sSortDescending":
+                            ": 以降序排列此列"
+                    }
             }
-    ],
-        language: {
-            "sProcessing"
-        :
-            "处理中...",
-                "sLengthMenu"
-        :
-            "显示 _MENU_ 项结果",
-                "sZeroRecords"
-        :
-            "没有匹配结果",
-                "sInfo"
-        :
-            "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "sInfoEmpty"
-        :
-            "显示第 0 至 0 项结果，共 0 项",
-                "sInfoFiltered"
-        :
-            "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix"
-        :
-            "",
-                "sSearch"
-        :
-            "搜索:",
-                "sUrl"
-        :
-            "",
-                "sEmptyTable"
-        :
-            "表中数据为空",
-                "sLoadingRecords"
-        :
-            "载入中...",
-                "sInfoThousands"
-        :
-            ",",
-                "oPaginate"
-        :
-            {
-                "sFirst"
-            :
-                "首页",
-                    "sPrevious"
-            :
-                "上页",
-                    "sNext"
-            :
-                "下页",
-                    "sLast"
-            :
-                "末页"
-            }
-        ,
-            "oAria"
-        :
-            {
-                "sSortAscending"
-            :
-                ": 以升序排列此列",
-                    "sSortDescending"
-            :
-                ": 以降序排列此列"
-            }
-        }
-    ,
+            ,
 
-    });
+        });
     })
     ;
 </script>
@@ -776,6 +861,37 @@
 
             }
         })
+    });
+</script>
+
+<%-- Js Tree 处理资源--%>
+<script>
+    $('#demo-jstree-3').jstree({
+        'core': {
+            'check_callback': true,
+            data:function (obj,callback) {
+
+            }
+        },
+        'plugins': ['types', 'dnd'],
+        'types': {
+            'default': {
+                'icon': 'fa fa-folder-o'
+            },
+            'html': {
+                'icon': 'fa fa-file-text-o'
+            },
+            'file': {
+                'icon': 'fa fa-file-text-o'
+            },
+            'jpg': {
+                'icon': 'fa fa-file-image-o'
+            },
+            'zip': {
+                'icon': 'fa fa-file-zip-o'
+            }
+        },
+        
     });
 </script>
 
