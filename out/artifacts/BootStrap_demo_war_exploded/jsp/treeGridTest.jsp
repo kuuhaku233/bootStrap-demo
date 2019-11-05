@@ -60,259 +60,20 @@
 </head>
 
 
-<body>
-<div id="container" class="effect aside-float aside-bright mainnav-lg">
-
-    <jsp:include page="common/header.jsp"></jsp:include>
-
-    <div class="boxed">
-
-        <!--CONTENT CONTAINER-->
-        <!--===================================================-->
-        <div id="content-container">
-            <div id="page-head">
-
-                <!--Page Title-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <div id="page-title">
-                    <h1 class="page-header text-overflow">资源管理</h1>
-                </div>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End page title-->
-
-                <!--Breadcrumb-->
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <ol class="breadcrumb">
-                    <li><a href="../jsp/index.jsp"><i class="demo-pli-home"></i></a></li>
-                    <li><a href="../jsp/index.jsp">系统管理</a></li>
-                    <li class="active">资源管理</li>
-                </ol>
-                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-                <!--End breadcrumb-->
-
-            </div>
-
-
-            <!--Page content-->
-            <!--===================================================-->
-            <div id="page-content">
-
-
-                <!-- ajax方式获取数据表格 -->
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">资源管理</h3>
-
-                    </div>
-                    <div class="panel-body">
-
-                        <div class="mar-btm">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#useradd">新增</button>
-                        </div>
-
-                        <table id="resource-table" class="table table-striped table-bordered" cellspacing="0"
-                               width="100%">
-                            <%--<thead>
-                            <tr>
-                                <th></th>
-                                <th class="min-desktop">资源名称</th>
-                                <th class="min-desktop">资源链接</th>
-                                <th class="min-desktop">资源图标</th>
-                                <th class="min-desktop">资源级别</th>
-                                <th class="min-desktop">资源所属</th>
-                                <th class="min-desktop">操作</th>
-                            </tr>
-                            </thead>--%>
-
-                        </table>
-                    </div>
-                </div>
-                <!-- ajax方式获取数据表格 -->
-
-
-
-            </div>
-            <!--===================================================-->
-            <!--End page content-->
-
-        </div>
-        <!--===================================================-->
-        <!--END CONTENT CONTAINER-->
-
-
-        <jsp:include page="common/aside.jsp"></jsp:include>
-
-
-        <jsp:include page="common/nav.jsp"></jsp:include>
-
-    </div>
-    <!-- Button trigger modal -->
-
-    <!-- 修改内容的弹出框 -->
-    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">修改角色信息</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="panel-body">
-                        <div class="panel-body">
-                            <%-- 弹出框内用户可以修改的内容 --%>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">输入角色信息</h3>
-                                </div>
-
-                                <!--Horizontal Form-->
-                                <!--===================================================-->
-                                <form class="form-horizontal" style="border:1px solid rgba(0,0,0,0.07);"
-                                      id="updateForm">
-                                    <div class="panel-body">
-                                        <input type="hidden" name="rid">
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="demo-hor-inputemail">角色名称</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" placeholder="角色名称" id="demo-hor-inputemail"
-                                                       class="form-control" name="rname">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer text-right">
-                                        <button class="btn btn-success" type="button" id="xgbtn">修改</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    </div>
-                                </form>
-                                <!--===================================================-->
-                                <!--End Horizontal Form-->
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <!--===================================================-->
-    <footer id="footer">
-
-        <!-- Visible when footer positions are fixed -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="show-fixed pad-rgt pull-right">
-            You have <a href="#" class="text-main"><span class="badge badge-danger">3</span> pending action.</a>
-        </div>
-
-
-        <!-- Visible when footer positions are static -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <div class="hide-fixed pull-right pad-rgt">
-            14GB of <strong>512GB</strong> Free.
-        </div>
-
-
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
-        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-        <p class="pad-lft">&#0169; 2017 Your Company</p>
-
-
-    </footer>
-    <!--===================================================-->
-    <!-- END FOOTER -->
-
-
-    <!-- SCROLL PAGE BUTTON -->
-    <!--===================================================-->
-    <button class="scroll-top btn">
-        <i class="pci-chevron chevron-up"></i>
-    </button>
-    <!--===================================================-->
-
-
+<body background="white">
+<div class="container">
+    <h1>树形表格 ： Table Treegrid</h1>
+    <table id="table"></table>
+    <br/>
+    <button οnclick="test()">选择</button>
 </div>
 <!--===================================================-->
 <!-- 修改内容的弹出框-->
 
 <%-- 新增用户的模态框 --%>
-<div class="modal" tabindex="-1" role="dialog" id="useradd">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">角色数据添加界面</h4>
-            </div>
-            <div class="modal-body">
-                <form class="form-horizontal" id="formadd">
-
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">角色名称：</label>
-                            <div class="col-sm-9">
-                                <input type="text" placeholder="角色名称" class="form-control" name="rname">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">角色所属公司：</label>
-                            <div class="col-sm-9">
-                                <input type="text" placeholder="角色所属公司" class="form-control" name="rbianma">
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="panel-footer text-right">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button class="btn btn-success" type="button" id="addbaocun">保存</button>
-                    </div>
-                </form>
-            </div>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <%-- 新增用户的模态框 --%>
 
 <%-- 查看角色下的腰用户信息的模态框 --%>
-<div class="modal fade bs-example-modal-lg" id="showModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">角色用户信息界面</h4>
-            </div>
-            <div class="modal-body">
-                <div class="mar-btm">
-                    <h5>角色名称:<span id="roleName" style="color: red"></span></h5>
-                    <button class="btn-danger btn" disabled id="xiugaiyonghu">修改用户</button>
-                </div>
-                <table id="userShow" class="table table-striped table-bordered" cellspacing="0"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        <th data-checkbox></th>
-                        <th>uid</th>
-                        <th class="min-desktop">用户名</th>
-                        <th class="min-desktop">邮箱</th>
-                        <th class="min-desktop">手机号</th>
-                        <th class="min-desktop">注册时间</th>
-                        <th class="min-desktop">注册地址</th>
-                        <th class="min-desktop">格言</th>
-                        <th class="min-desktop">操作</th>
-                    </tr>
-                    </thead>
-
-                </table>
-            </div>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 <%-- 查看角色下的腰用户信息的模态框--%>
 
 <!--JAVASCRIPT-->
@@ -365,7 +126,7 @@
             "hOffset": 40, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
-        "react": {opacity: 0.6},
+        "react": {opacity: 0.7},
         dialog: {
             // 开启对话框
             enable: true,
@@ -429,134 +190,7 @@
         });
     });
 </script>
-<%-- 通过bootstrapTable获取数据 --%>
-<script type="text/javascript">
-    var $table = $('#resource-table');
-    var data = JSON.parse(
-        '[{"aid":1,"opid":0,"status":1,"rename":"用户管理","permissionValue":"open:user:manage"},' +
-        '{"aid":2,"opid":0,"status":1,"rename":"系统管理","permissionValue":"open:system:manage"},' +
-        '{"aid":3,"opid":1,"status":1,"rename":"新增用户","permissionValue":"open:user:add"},' +
-        '{"aid":4,"opid":1,"status":1,"rename":"修改用户","permissionValue":"open:user:edit"},' +
-        '{"aid":5,"opid":1,"status":0,"rename":"删除用户","permissionValue":"open:user:del"},' +
-        '{"aid":6,"opid":2,"status":1,"rename":"系统配置管理","permissionValue":"open:systemconfig:manage"},' +
-        '{"aid":7,"opid":6,"status":1,"rename":"新增配置","permissionValue":"open:systemconfig:add"},' +
-        '{"aid":8,"opid":6,"status":1,"rename":"修改配置","permissionValue":"open:systemconfig:edit"},' +
-        '{"aid":9,"opid":6,"status":0,"rename":"删除配置","permissionValue":"open:systemconfig:del"},' +
-        '{"aid":10,"opid":2,"status":1,"rename":"系统日志管理","permissionValue":"open:log:manage"},' +
-        '{"aid":11,"opid":10,"status":1,"rename":"新增日志","permissionValue":"open:log:add"},' +
-        '{"aid":12,"opid":10,"status":1,"rename":"修改日志","permissionValue":"open:log:edit"},' +
-        '{"aid":13,"opid":10,"status":0,"rename":"删除日志","permissionValue":"open:log:del"}]');
 
-    $(function() {
-
-        //控制台输出一下数据
-        console.log(data);
-
-        $table.bootstrapTable({
-            data:data,
-            idField: 'aid',
-            dataType:'jsonp',
-            columns: [
-                { field: 'check',  checkbox: true, formatter: function (value, row, index) {
-                        if (row.check == true) {
-                            // console.log(row.serverName);
-                            //设置选中
-                            return {  checked: true };
-                        }
-                    }
-                },
-                { field: 'rename',  title: '名称' },
-                // {field: 'id', title: '编号', sortable: true, align: 'center'},
-                // {field: 'pid', title: '所属上级'},
-                { field: 'status',  title: '状态', sortable: true,  align: 'center', formatter: 'statusFormatter'  },
-                { field: 'permissionValue', title: '权限值'  },
-                { field: 'operate', title: '操作', align: 'center', events : operateEvents, formatter: 'operateFormatter' },
-            ],
-
-            // bootstrap-table-treegrid.js 插件配置 -- start
-
-            //在哪一列展开树形
-            treeShowField: 'rename',
-            //指定父id列
-            parentIdField: 'opid',
-
-            onResetView: function(data) {
-                //console.log('load');
-                $table.treegrid({
-                    initialState: 'collapsed',// 所有节点都折叠
-                    // initialState: 'expanded',// 所有节点都展开，默认展开
-                    treeColumn: 1,
-                     expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
-                     expanderCollapsedClass: 'glyphicon glyphicon-plus',
-                    onChange: function() {
-                        $table.bootstrapTable('resetWidth');
-                    }
-                });
-
-                //只展开树形的第一级节点
-                $table.treegrid('getRootNodes').treegrid('expand');
-
-            },
-            onCheck:function(row){
-                var datas = $table.bootstrapTable('getData');
-                // 勾选子类
-                selectChilds(datas,row,"id","pid",true);
-
-                // 勾选父类
-                selectParentChecked(datas,row,"id","pid")
-
-                // 刷新数据
-                $table.bootstrapTable('load', datas);
-            },
-
-            onUncheck:function(row){
-                var datas = $table.bootstrapTable('getData');
-                selectChilds(datas,row,"id","pid",false);
-                $table.bootstrapTable('load', datas);
-            },
-            // bootstrap-table-treetreegrid.js 插件配置 -- end
-        });
-    });
-
-    // 格式化按钮
-    function operateFormatter(value, row, index) {
-        return [
-            '<button type="button" class="RoleOfadd btn-small  btn-primary" style="margin-right:15px;"><i class="fa fa-plus" ></i>&nbsp;新增</button>',
-            '<button type="button" class="RoleOfedit btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-pencil-square-o" ></i>&nbsp;修改</button>',
-            '<button type="button" class="RoleOfdelete btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-trash-o" ></i>&nbsp;删除</button>'
-        ].join('');
-
-    }
-    // 格式化类型
-    function typeFormatter(value, row, index) {
-        if (value === 'menu') {  return '菜单';  }
-        if (value === 'button') {  return '按钮'; }
-        if (value === 'api') {  return '接口'; }
-        return '-';
-    }
-    // 格式化状态
-    function statusFormatter(value, row, index) {
-        if (value === 1) {
-            return '<span class="label label-success">正常</span>';
-        } else {
-            return '<span class="label label-default">锁定</span>';
-        }
-    }
-
-    //初始化操作按钮的方法
-    window.operateEvents = {
-        'click .RoleOfadd': function (e, value, row, index) {
-            add(row.id);
-        },
-        'click .RoleOfdelete': function (e, value, row, index) {
-            del(row.id);
-        },
-        'click .RoleOfedit': function (e, value, row, index) {
-            update(row.id);
-        }
-    };
-</script>
-<%-- 通过bootstrapTable获取数据 --%>
 <%--  修改操作模态框 js --%>
 <script>
     //修改操作  模态框
@@ -857,6 +491,218 @@
     });
 </script>
 
+<%-- Js Tree 处理资源--%>
+<script>
+    $('#demo-jstree-3').jstree({
+        'core': {
+            'check_callback': true,
+            data:function (obj,callback) {
+
+            }
+        },
+        'plugins': ['types', 'dnd'],
+        'types': {
+            'default': {
+                'icon': 'fa fa-folder-o'
+            },
+            'html': {
+                'icon': 'fa fa-file-text-o'
+            },
+            'file': {
+                'icon': 'fa fa-file-text-o'
+            },
+            'jpg': {
+                'icon': 'fa fa-file-image-o'
+            },
+            'zip': {
+                'icon': 'fa fa-file-zip-o'
+            }
+        },
+        
+    });
+</script>
+<script type="text/javascript">
+    var $table = $('#table');
+    var data = JSON.parse(
+        '[{"aid":1,"opid":0,"status":1,"rename":"用户管理","permissionValue":"open:user:manage"},' +
+        '{"aid":2,"opid":0,"status":1,"rename":"系统管理","permissionValue":"open:system:manage"},' +
+        '{"aid":3,"opid":1,"status":1,"rename":"新增用户","permissionValue":"open:user:add"},' +
+        '{"aid":4,"opid":1,"status":1,"rename":"修改用户","permissionValue":"open:user:edit"},' +
+        '{"aid":5,"opid":1,"status":0,"rename":"删除用户","permissionValue":"open:user:del"},' +
+        '{"aid":6,"opid":2,"status":1,"rename":"系统配置管理","permissionValue":"open:systemconfig:manage"},' +
+        '{"aid":7,"opid":6,"status":1,"rename":"新增配置","permissionValue":"open:systemconfig:add"},' +
+        '{"aid":8,"opid":6,"status":1,"rename":"修改配置","permissionValue":"open:systemconfig:edit"},' +
+        '{"aid":9,"opid":6,"status":0,"rename":"删除配置","permissionValue":"open:systemconfig:del"},' +
+        '{"aid":10,"opid":2,"status":1,"rename":"系统日志管理","permissionValue":"open:log:manage"},' +
+        '{"aid":11,"opid":10,"status":1,"rename":"新增日志","permissionValue":"open:log:add"},' +
+        '{"aid":12,"opid":10,"status":1,"rename":"修改日志","permissionValue":"open:log:edit"},' +
+        '{"aid":13,"opid":10,"status":0,"rename":"删除日志","permissionValue":"open:log:del"}]');
+
+    $(function() {
+
+        //控制台输出一下数据
+        console.log(data);
+
+        $table.bootstrapTable({
+            data:data,
+            idField: 'aid',
+            dataType:'jsonp',
+            columns: [
+                { field: 'check',  checkbox: true, formatter: function (value, row, index) {
+                        if (row.check == true) {
+                            // console.log(row.serverName);
+                            //设置选中
+                            return {  checked: true };
+                        }
+                    }
+                },
+                { field: 'rename',  title: '名称' },
+                // {field: 'id', title: '编号', sortable: true, align: 'center'},
+                // {field: 'pid', title: '所属上级'},
+                { field: 'status',  title: '状态', sortable: true,  align: 'center', formatter: 'statusFormatter'  },
+                { field: 'permissionValue', title: '权限值'  },
+                { field: 'operate', title: '操作', align: 'center', events : operateEvents, formatter: 'operateFormatter' },
+            ],
+
+            // bootstrap-table-treegrid.js 插件配置 -- start
+
+            //在哪一列展开树形
+            treeShowField: 'rename',
+            //指定父id列
+            parentIdField: 'opid',
+
+            onResetView: function(data) {
+                //console.log('load');
+                $table.treegrid({
+                    initialState: 'collapsed',// 所有节点都折叠
+                    // initialState: 'expanded',// 所有节点都展开，默认展开
+                    treeColumn: 1,
+                    // expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+                    // expanderCollapsedClass: 'glyphicon glyphicon-plus',
+                    onChange: function() {
+                        $table.bootstrapTable('resetWidth');
+                    }
+                });
+
+                //只展开树形的第一级节点
+                $table.treegrid('getRootNodes').treegrid('expand');
+
+            },
+            onCheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                // 勾选子类
+                selectChilds(datas,row,"id","pid",true);
+
+                // 勾选父类
+                selectParentChecked(datas,row,"id","pid")
+
+                // 刷新数据
+                $table.bootstrapTable('load', datas);
+            },
+
+            onUncheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                selectChilds(datas,row,"id","pid",false);
+                $table.bootstrapTable('load', datas);
+            },
+            // bootstrap-table-treetreegrid.js 插件配置 -- end
+        });
+    });
+
+    // 格式化按钮
+    function operateFormatter(value, row, index) {
+        return [
+            '<button type="button" class="RoleOfadd btn-small  btn-primary" style="margin-right:15px;"><i class="fa fa-plus" ></i>&nbsp;新增</button>',
+            '<button type="button" class="RoleOfedit btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-pencil-square-o" ></i>&nbsp;修改</button>',
+            '<button type="button" class="RoleOfdelete btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-trash-o" ></i>&nbsp;删除</button>'
+        ].join('');
+
+    }
+    // 格式化类型
+    function typeFormatter(value, row, index) {
+        if (value === 'menu') {  return '菜单';  }
+        if (value === 'button') {  return '按钮'; }
+        if (value === 'api') {  return '接口'; }
+        return '-';
+    }
+    // 格式化状态
+    function statusFormatter(value, row, index) {
+        if (value === 1) {
+            return '<span class="label label-success">正常</span>';
+        } else {
+            return '<span class="label label-default">锁定</span>';
+        }
+    }
+
+    //初始化操作按钮的方法
+    window.operateEvents = {
+        'click .RoleOfadd': function (e, value, row, index) {
+            add(row.id);
+        },
+        'click .RoleOfdelete': function (e, value, row, index) {
+            del(row.id);
+        },
+        'click .RoleOfedit': function (e, value, row, index) {
+            update(row.id);
+        }
+    };
+</script>
+<script>
+    /**
+     * 选中父项时，同时选中子项
+     * @param datas 所有的数据
+     * @param row 当前数据
+     * @param id id 字段名
+     * @param pid 父id字段名
+     */
+    function selectChilds(datas,row,id,pid,checked) {
+        for(var i in datas){
+            if(datas[i][pid] == row[id]){
+                datas[i].check=checked;
+                selectChilds(datas,datas[i],id,pid,checked);
+            };
+        }
+    }
+
+    function selectParentChecked(datas,row,id,pid){
+        for(var i in datas){
+            if(datas[i][id] == row[pid]){
+                datas[i].check=true;
+                selectParentChecked(datas,datas[i],id,pid);
+            };
+        }
+    }
+
+    function test() {
+        var selRows = $table.bootstrapTable("getSelections");
+        if(selRows.length == 0){
+            alert("请至少选择一行");
+            return;
+        }
+
+        var postData = "";
+        $.each(selRows,function(i) {
+            postData +=  this.id;
+            if (i < selRows.length - 1) {
+                postData += "， ";
+            }
+        });
+        alert("你选中行的 id 为："+postData);
+
+    }
+
+    function add(id) {
+        alert("add 方法 , id = " + id);
+    }
+    function del(id) {
+        alert("del 方法 , id = " + id);
+    }
+    function update(id) {
+        alert("update 方法 , id = " + id);
+    }
+
+
+</script>
 
 </body>
 </html>

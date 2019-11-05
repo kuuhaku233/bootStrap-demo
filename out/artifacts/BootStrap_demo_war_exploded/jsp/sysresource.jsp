@@ -52,6 +52,11 @@
     <link href="plugins/jstree/themes/default/style.min.css" rel="stylesheet">
     <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
+    <%-- bootstrapTable的css--%>
+    <link href="plugins\bootstrap-table\bootstrap-table.css" rel="stylesheet">
+    <%-- 引入bootstrapTable的treegrid css --%>
+    <link href="plugins/bootstrap-table/extensions/tree-column/jquery.treegrid.css" rel="stylesheet">
+
 </head>
 
 
@@ -107,7 +112,7 @@
 
                         <table id="resource-table" class="table table-striped table-bordered" cellspacing="0"
                                width="100%">
-                            <thead>
+                            <%--<thead>
                             <tr>
                                 <th></th>
                                 <th class="min-desktop">资源名称</th>
@@ -117,95 +122,13 @@
                                 <th class="min-desktop">资源所属</th>
                                 <th class="min-desktop">操作</th>
                             </tr>
-                            </thead>
+                            </thead>--%>
 
                         </table>
                     </div>
                 </div>
                 <!-- ajax方式获取数据表格 -->
 
-                <%-- JS Tree获取资源数据 --%>
-                <div class="panel">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Custom Icon (Font Awesome)</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="demo-jstree-3">
-                            <ul>
-                                <li class="jstree-open">Admin theme
-                                    <ul>
-                                        <li class="jstree-open">demo
-                                            <ul>
-                                                <li class="jstree-open">basic
-                                                    <ul>
-                                                        <li data-jstree='{"type":"html"}'>index.html</li>
-                                                        <li data-jstree='{"type":"file"}'>root.json</li>
-                                                    </ul>
-                                                </li>
-                                                <li data-jstree='{"type":"file"}'>Readme.md</li>
-                                            </ul>
-                                        </li>
-                                        <li>dist
-                                            <ul>
-                                                <li class="jstree-open">theme
-                                                    <ul>
-                                                        <li class="jstree-open">default
-                                                            <ul>
-                                                                <li data-jstree='{"type":"jpg"}'>32px.png</li>
-                                                                <li data-jstree='{"type":"jpg"}'>40px.png</li>
-                                                                <li data-jstree='{"type":"file"}'>style.css</li>
-                                                                <li data-jstree='{"type":"file"}'>style.min.css</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <ul>
-                                                        <li>default-dark
-                                                            <ul>
-                                                                <li data-jstree='{"type":"jpg"}'>32px.png</li>
-                                                                <li data-jstree='{"type":"jpg"}'>40px.png</li>
-                                                                <li data-jstree='{"type":"file"}'>style.css</li>
-                                                                <li data-jstree='{"type":"file"}'>style.min.css</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li data-jstree='{"type":"file"}'>jstree.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.min.js</li>
-                                            </ul>
-                                        </li>
-                                        <li>src
-                                            <ul>
-                                                <li data-jstree='{"type":"file"}'>intro.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.changed.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.checkbox.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.conditionalselect.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.contextmenu.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.dnd.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.massload.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.search.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.sort.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.state.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.types.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.unique.js</li>
-                                                <li data-jstree='{"type":"file"}'>jstree.wholerow.js</li>
-                                                <li data-jstree='{"type":"file"}'>misc.js</li>
-                                                <li data-jstree='{"type":"file"}'>outro.js</li>
-                                                <li data-jstree='{"type":"file"}'>sample.js</li>
-                                                <li data-jstree='{"type":"file"}'>themes</li>
-                                                <li data-jstree='{"type":"file"}'>vakata-jstree.js</li>
-                                            </ul>
-                                        </li>
-                                        <li>unit</li>
-                                        <li>visual</li>
-                                        <li data-jstree='{"type":"zip"}'>package.zip</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <%-- JS Tree获取资源数据 --%>
 
 
             </div>
@@ -372,9 +295,7 @@
                        width="100%">
                     <thead>
                     <tr>
-                        <div class="checkbox">
-                            <th><input class="" id="CheckedAll" type="checkbox" checked="true"></th>
-                        </div>
+                        <th data-checkbox></th>
                         <th>uid</th>
                         <th class="min-desktop">用户名</th>
                         <th class="min-desktop">邮箱</th>
@@ -423,6 +344,15 @@
 <!--JSTree [ OPTIONAL ]-->
 <script src="plugins/jstree/jstree.min.js"></script>
 
+<%-- 引入bootstrapTable 的js插件 --%>
+<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
+<%-- 引入bootstrapTable 的语言包 --%>
+<script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<%-- 引入bootstrapTable的treegrid插件 --%>
+<script src="plugins/bootstrap-table/extensions/tree-column/jquery.treegrid.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+
+<%-- Live2D动画的插件--%>
 <script src="./lib/L2Dwidget.min.js"></script>
 <script type="text/javascript">
     L2Dwidget.init({
@@ -435,7 +365,7 @@
             "hOffset": 40, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
-        "react": {opacity: 0.7},
+        "react": {opacity: 0.6},
         dialog: {
             // 开启对话框
             enable: true,
@@ -454,6 +384,7 @@
 
     });
 </script>
+<%-- Live2D动画的插件--%>
 
 <%-- 注册 修改操作 表单验证 --%>
 <script>
@@ -498,104 +429,134 @@
         });
     });
 </script>
-<%--  通过datatable 获取数据  表格1--%>
-<script>
+<%-- 通过bootstrapTable获取数据 --%>
+<script type="text/javascript">
+    var $table = $('#resource-table');
+    var data = JSON.parse(
+        '[{"aid":1,"opid":0,"status":1,"rename":"用户管理","permissionValue":"open:user:manage"},' +
+        '{"aid":2,"opid":0,"status":1,"rename":"系统管理","permissionValue":"open:system:manage"},' +
+        '{"aid":3,"opid":1,"status":1,"rename":"新增用户","permissionValue":"open:user:add"},' +
+        '{"aid":4,"opid":1,"status":1,"rename":"修改用户","permissionValue":"open:user:edit"},' +
+        '{"aid":5,"opid":1,"status":0,"rename":"删除用户","permissionValue":"open:user:del"},' +
+        '{"aid":6,"opid":2,"status":1,"rename":"系统配置管理","permissionValue":"open:systemconfig:manage"},' +
+        '{"aid":7,"opid":6,"status":1,"rename":"新增配置","permissionValue":"open:systemconfig:add"},' +
+        '{"aid":8,"opid":6,"status":1,"rename":"修改配置","permissionValue":"open:systemconfig:edit"},' +
+        '{"aid":9,"opid":6,"status":0,"rename":"删除配置","permissionValue":"open:systemconfig:del"},' +
+        '{"aid":10,"opid":2,"status":1,"rename":"系统日志管理","permissionValue":"open:log:manage"},' +
+        '{"aid":11,"opid":10,"status":1,"rename":"新增日志","permissionValue":"open:log:add"},' +
+        '{"aid":12,"opid":10,"status":1,"rename":"修改日志","permissionValue":"open:log:edit"},' +
+        '{"aid":13,"opid":10,"status":0,"rename":"删除日志","permissionValue":"open:log:del"}]');
 
-    $(document).ready(function () {
-        $('#resource-table').dataTable({
-            "ordering": false,  //关闭排序功能
-            "searching": true,  // false  关闭搜索框
-            "ajax": {
-                "url": "../system/getresource",
-                //默认为data,这里定义为空，则只需要传不带属性的数据
-                "dataSrc": ""
-            },
-            "columns": [
-                {
-                    "data": "reid",
-                    "visible": false
-                    // visible:false 单独隐藏列"visible": false
-                },
-                {"data": "resourcename"},
-                {"data": "relink"},
-                {"data": "rebianhao"},
-                {
-                    "data": "rejigouid", render:
-                        function (data) {
-                            if (data == 0) {
-                                return '<span style="color: red;font-weight: bold">一级资源</span>'
-                            } else if (data == 1) {
-                                return "二级资源"
-                            }
-                            else {
-                                return "三级资源"
-                            }
+    $(function() {
+
+        //控制台输出一下数据
+        console.log(data);
+
+        $table.bootstrapTable({
+            data:data,
+            idField: 'aid',
+            dataType:'jsonp',
+            columns: [
+                { field: 'check',  checkbox: true, formatter: function (value, row, index) {
+                        if (row.check == true) {
+                            // console.log(row.serverName);
+                            //设置选中
+                            return {  checked: true };
                         }
+                    }
                 },
-                {"data": "reopjigouid", orderable: false},
-                {
-                    "data": null
-                    ,
-                    /*defaultContent  添加默认值*/
-                    defaultContent: '<a href="javascript::##" class="xiugai"><i class="myfont icon-tianxie"></i></a>' +
-                    '<a href="javascript::##" class="delbtn"><i class="myfont icon-shanchu"></i></a>' +
-                    '<a href="javascript::##" class="showbtn"><i class="myfont icon-sousuo"></i></a>',
-                    orderable: false  //关闭该列数据排序
-                }
+                { field: 'rename',  title: '名称' },
+                // {field: 'id', title: '编号', sortable: true, align: 'center'},
+                // {field: 'pid', title: '所属上级'},
+                { field: 'status',  title: '状态', sortable: true,  align: 'center', formatter: 'statusFormatter'  },
+                { field: 'permissionValue', title: '权限值'  },
+                { field: 'operate', title: '操作', align: 'center', events : operateEvents, formatter: 'operateFormatter' },
             ],
-            language: {
-                "sProcessing":
-                    "处理中...",
-                "sLengthMenu":
-                    "显示 _MENU_ 项结果",
-                "sZeroRecords":
-                    "没有匹配结果",
-                "sInfo":
-                    "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "sInfoEmpty":
-                    "显示第 0 至 0 项结果，共 0 项",
-                "sInfoFiltered":
-                    "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix":
-                    "",
-                "sSearch":
-                    "搜索:",
-                "sUrl":
-                    "",
-                "sEmptyTable":
-                    "表中数据为空",
-                "sLoadingRecords":
-                    "载入中...",
-                "sInfoThousands":
-                    ",",
-                "oPaginate":
-                    {
-                        "sFirst":
-                            "首页",
-                        "sPrevious":
-                            "上页",
-                        "sNext":
-                            "下页",
-                        "sLast":
-                            "末页"
-                    }
-                ,
-                "oAria":
-                    {
-                        "sSortAscending":
-                            ": 以升序排列此列",
-                        "sSortDescending":
-                            ": 以降序排列此列"
-                    }
-            }
-            ,
 
+            // bootstrap-table-treegrid.js 插件配置 -- start
+
+            //在哪一列展开树形
+            treeShowField: 'rename',
+            //指定父id列
+            parentIdField: 'opid',
+
+            onResetView: function(data) {
+                //console.log('load');
+                $table.treegrid({
+                    initialState: 'collapsed',// 所有节点都折叠
+                    // initialState: 'expanded',// 所有节点都展开，默认展开
+                    treeColumn: 1,
+                     expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
+                     expanderCollapsedClass: 'glyphicon glyphicon-plus',
+                    onChange: function() {
+                        $table.bootstrapTable('resetWidth');
+                    }
+                });
+
+                //只展开树形的第一级节点
+                $table.treegrid('getRootNodes').treegrid('expand');
+
+            },
+            onCheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                // 勾选子类
+                selectChilds(datas,row,"id","pid",true);
+
+                // 勾选父类
+                selectParentChecked(datas,row,"id","pid")
+
+                // 刷新数据
+                $table.bootstrapTable('load', datas);
+            },
+
+            onUncheck:function(row){
+                var datas = $table.bootstrapTable('getData');
+                selectChilds(datas,row,"id","pid",false);
+                $table.bootstrapTable('load', datas);
+            },
+            // bootstrap-table-treetreegrid.js 插件配置 -- end
         });
-    })
-    ;
-</script>
-<%-- 通过datatable 获取数据  表格1--%>
+    });
 
+    // 格式化按钮
+    function operateFormatter(value, row, index) {
+        return [
+            '<button type="button" class="RoleOfadd btn-small  btn-primary" style="margin-right:15px;"><i class="fa fa-plus" ></i>&nbsp;新增</button>',
+            '<button type="button" class="RoleOfedit btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-pencil-square-o" ></i>&nbsp;修改</button>',
+            '<button type="button" class="RoleOfdelete btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-trash-o" ></i>&nbsp;删除</button>'
+        ].join('');
+
+    }
+    // 格式化类型
+    function typeFormatter(value, row, index) {
+        if (value === 'menu') {  return '菜单';  }
+        if (value === 'button') {  return '按钮'; }
+        if (value === 'api') {  return '接口'; }
+        return '-';
+    }
+    // 格式化状态
+    function statusFormatter(value, row, index) {
+        if (value === 1) {
+            return '<span class="label label-success">正常</span>';
+        } else {
+            return '<span class="label label-default">锁定</span>';
+        }
+    }
+
+    //初始化操作按钮的方法
+    window.operateEvents = {
+        'click .RoleOfadd': function (e, value, row, index) {
+            add(row.id);
+        },
+        'click .RoleOfdelete': function (e, value, row, index) {
+            del(row.id);
+        },
+        'click .RoleOfedit': function (e, value, row, index) {
+            update(row.id);
+        }
+    };
+</script>
+<%-- 通过bootstrapTable获取数据 --%>
 <%--  修改操作模态框 js --%>
 <script>
     //修改操作  模态框
@@ -896,36 +857,6 @@
     });
 </script>
 
-<%-- Js Tree 处理资源--%>
-<script>
-    $('#demo-jstree-3').jstree({
-        'core': {
-            'check_callback': true,
-            data:function (obj,callback) {
-
-            }
-        },
-        'plugins': ['types', 'dnd'],
-        'types': {
-            'default': {
-                'icon': 'fa fa-folder-o'
-            },
-            'html': {
-                'icon': 'fa fa-file-text-o'
-            },
-            'file': {
-                'icon': 'fa fa-file-text-o'
-            },
-            'jpg': {
-                'icon': 'fa fa-file-image-o'
-            },
-            'zip': {
-                'icon': 'fa fa-file-zip-o'
-            }
-        },
-        
-    });
-</script>
 
 </body>
 </html>

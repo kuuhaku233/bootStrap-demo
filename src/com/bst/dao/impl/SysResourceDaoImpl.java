@@ -25,7 +25,7 @@ public class SysResourceDaoImpl implements SysResourceDao {
                 "\tsr2.relink AS relink,\n" +
                 "\tsr2.rebianhao AS rebianhao,\n" +
                 "\tsr2.rejigouid AS rejigouid,\n" +
-                "\tsr1.resourcename AS reopjigouid \n" +
+                "\tsr1.resourcename AS zicaidan \n" +
                 "FROM\n" +
                 "\tresource AS sr1\n" +
                 "\tINNER JOIN resource AS sr2 ON sr2.reopjigouid = sr1.reid";

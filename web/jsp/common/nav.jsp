@@ -92,7 +92,7 @@
                                 <li class="active-link"><a href="../jsp/sysuser.jsp">用户管理</a></li>
                                 <li><a href="../jsp/sysrole.jsp">角色管理</a></li>
                                 <li><a href="../jsp/sysresource.jsp">资源管理</a></li>
-                                <li><a href="dashboard-3.html">权限管理</a></li>
+                                <li><a href="../jsp/treeGridTest.jsp">权限管理</a></li>
 
                             </ul>
                         </li>
