@@ -320,7 +320,7 @@
 
     <!--Bootstrap Validator 表单验证-->
     <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
-
+    <%-- Live2D 看板动画 --%>
     <script src="./lib/L2Dwidget.min.js"></script>
     <script type="text/javascript">
         L2Dwidget.init({
@@ -333,7 +333,7 @@
                 "hOffset": 40, "vOffset": 20,
 
             }, "mobile": {"show": true, "scale": 0.5},
-            "react": {"opacityDefault": 2.0, "opacityOnHover": 0.2},
+            "react": {opacity: 0.7},
             dialog: {
                 // 开启对话框
                 enable: true,

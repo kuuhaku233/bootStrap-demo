@@ -435,7 +435,7 @@
             "hOffset": 40, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
-        "react": {"opacityDefault": 2.0, "opacityOnHover": 0.2},
+        "react": {opacity: 0.7},
         dialog: {
             // 开启对话框
             enable: true,
