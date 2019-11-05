@@ -320,7 +320,7 @@
 
     <!--Bootstrap Validator 表单验证-->
     <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
-
+    <%-- Live2D 看板动画 --%>
     <script src="./lib/L2Dwidget.min.js"></script>
     <script type="text/javascript">
         L2Dwidget.init({

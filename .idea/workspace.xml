@@ -6,16 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7055fa3-82b6-4889-aac2-66fdbfd12c7d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/manifest.json" afterDir="false" />
+    <list default="true" id="e7055fa3-82b6-4889-aac2-66fdbfd12c7d" name="Default" comment="完成SQL查询 添加SysResource 没有完成ajax的调用">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/mysysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/mysysuser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/mysysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/mysysuser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/sysrole.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/sysrole.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/sysuser.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,20 +60,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysResourceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/bst/controller/SysResourceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#598#599#0" expanded="true" />
-                <element signature="e#654#655#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SysResourceDaoImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bst/dao/impl/SysResourceDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,18 +97,32 @@
       <file leaf-file-name="mysysuser.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/mysysuser.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
+            <state relative-caret-position="31372">
               <caret line="1364" selection-start-line="1364" selection-end-line="1364" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sysuser.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sysuser.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/jsp/sysuser.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="916">
-              <caret line="353" column="13" selection-start-line="353" selection-start-column="13" selection-end-line="353" selection-end-column="13" />
+            <state relative-caret-position="129">
+              <caret line="353" column="13" lean-forward="true" selection-start-line="323" selection-start-column="3" selection-end-line="353" selection-end-column="13" />
               <folding>
+                <element signature="n#script#10;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sysrole.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/jsp/sysrole.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="584">
+              <caret line="364" column="9" selection-start-line="364" selection-start-column="9" selection-end-line="364" selection-end-column="9" />
+              <folding>
+                <element signature="n#script#11;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -143,13 +136,7 @@
       </file>
       <file leaf-file-name="L2Dwidget.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="L2Dwidget.0.min.js" pinned="false" current-in-tab="false">
@@ -157,9 +144,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
               <caret line="10" column="28" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -233,6 +217,7 @@
         <option value="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js" />
         <option value="$PROJECT_DIR$/web/jsp/mysysuser.jsp" />
         <option value="$PROJECT_DIR$/web/jsp/sysuser.jsp" />
+        <option value="$PROJECT_DIR$/web/jsp/sysrole.jsp" />
       </list>
     </option>
   </component>
@@ -275,6 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,19 +277,12 @@
               <item name="BootStrap_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="BootStrap_demo" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="bst" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BootStrap_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BootStrap_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
@@ -545,7 +524,8 @@
       <workItem from="1571120904635" duration="1059000" />
       <workItem from="1571140041583" duration="18468000" />
       <workItem from="1571272946381" duration="18143000" />
-      <workItem from="1572861050686" duration="2615000" />
+      <workItem from="1572861050686" duration="2732000" />
+      <workItem from="1572913856506" duration="146000" />
     </task>
     <task id="LOCAL-00001" summary="完成SQL查询 添加SysResource 没有完成ajax的调用">
       <created>1572838744810</created>
@@ -586,10 +566,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55973000" />
+    <option name="totallyTimeSpent" value="56236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -604,7 +585,6 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.71783626" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32894737" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" />
@@ -613,18 +593,19 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.6544656" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32894737" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Persistence" order="3" sideWeight="0.13762811" side_tool="true" visible="true" weight="0.20643431" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.86237186" visible="true" weight="0.20643431" />
+      <window_info id="Persistence" order="3" sideWeight="0.13909224" side_tool="true" visible="true" weight="0.20911528" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.86090773" visible="true" weight="0.20911528" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32894737" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="8" weight="0.329429" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,9 +628,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/bst/img/bg-img/bg-img-7.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/bst/img/thumbs/img1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -865,9 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -892,9 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -902,9 +871,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -959,36 +925,39 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="28" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="28" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/mysysuser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="31372">
           <caret line="1364" selection-start-line="1364" selection-end-line="1364" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/jsp/sysuser.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="353" column="13" selection-start-line="353" selection-start-column="13" selection-end-line="353" selection-end-column="13" />
+        <state relative-caret-position="129">
+          <caret line="353" column="13" lean-forward="true" selection-start-line="323" selection-start-column="3" selection-end-line="353" selection-end-column="13" />
           <folding>
+            <element signature="n#script#10;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/jsp/sysrole.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="584">
+          <caret line="364" column="9" selection-start-line="364" selection-start-column="9" selection-end-line="364" selection-end-column="9" />
+          <folding>
+            <element signature="n#script#11;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>
         </state>
