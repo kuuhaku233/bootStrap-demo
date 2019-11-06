@@ -17,8 +17,7 @@ public class SysResourceController {
 
     @RequestMapping("getresource")
     @ResponseBody
-    List<Resource> getresource()
-    {
-         return sysResourceService.getresource();
+    List<Resource> getresource(String offset, String limit) {
+        return sysResourceService.getresource( offset,  limit);
     }
 }

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SysResourceDao {
 
-    List<Resource> getresource();
+    List<Resource> getresource(String offset, String limit);
 }

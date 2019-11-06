@@ -194,7 +194,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="pci-cross pci-circle"></i></button>
                     <h4 class="modal-title">用户数据修改界面</h4>
                 </div>
                 <div class="modal-body">
@@ -671,7 +671,6 @@
             //新增用户
             $("#addbaocun").on("click" ,function () {
                 var vali=$("#formadd").data('bootstrapValidator').validate().isValid();
-
                 if(vali){
                     $.ajax({
                         url:"../system/addusermess",

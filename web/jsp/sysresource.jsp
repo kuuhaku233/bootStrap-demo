@@ -55,7 +55,7 @@
     <%-- bootstrapTable的css--%>
     <link href="plugins\bootstrap-table\bootstrap-table.css" rel="stylesheet">
     <%-- 引入bootstrapTable的treegrid css --%>
-    <link href="plugins/bootstrap-table/extensions/tree-column/jquery.treegrid.css" rel="stylesheet">
+    <link href="plugins/bootstrap-table/extensions/treegrid/jquery.treegrid.css"  rel="stylesheet">
 
 </head>
 
@@ -106,29 +106,31 @@
                     </div>
                     <div class="panel-body">
 
-                        <div class="mar-btm">
+                        <div class="mar-btm" id="btntest1">
                             <button class="btn btn-primary" data-toggle="modal" data-target="#useradd">新增</button>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#useradd">导出excel</button>
                         </div>
 
                         <table id="resource-table" class="table table-striped table-bordered" cellspacing="0"
                                width="100%">
-                            <%--<thead>
+                            <thead>
                             <tr>
-                                <th></th>
-                                <th class="min-desktop">资源名称</th>
-                                <th class="min-desktop">资源链接</th>
-                                <th class="min-desktop">资源图标</th>
-                                <th class="min-desktop">资源级别</th>
-                                <th class="min-desktop">资源所属</th>
-                                <th class="min-desktop">操作</th>
+                                <th data-checkbox="true"></th>
+                                <th>reid</th>
+                                <th>资源名称</th>
+                                <th>资源链接</th>
+                                <th>资源图标</th>
+                                <th>资源级别</th>
+                                <th>资源所属</th>
+
+                                <th>操作</th>
                             </tr>
-                            </thead>--%>
+                            </thead>
 
                         </table>
                     </div>
                 </div>
                 <!-- ajax方式获取数据表格 -->
-
 
 
             </div>
@@ -149,53 +151,51 @@
     <!-- Button trigger modal -->
 
     <!-- 修改内容的弹出框 -->
-    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal" tabindex="-1" role="dialog" id="xiugai">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">修改角色信息</h4>
+                <div class="modal-header" style="border-bottom: 1px solid #ddd">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="pci-cross pci-circle"></i></button>
+                    <h4 class="modal-title">系统资源修改界面</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="panel-body">
+                    <form class="form-horizontal" id="formupdate">
+                        <input type="hidden" name="reid">
+                        <input type="hidden" name="rejigouid">
+                        <input type="hidden" name="reopjigouid">
                         <div class="panel-body">
-                            <%-- 弹出框内用户可以修改的内容 --%>
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">输入角色信息</h3>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >资源名称：</label>
+                                <div class="col-sm-9">
+                                    <input type="text" placeholder="资源名称："  class="form-control" name="resourcename">
                                 </div>
-
-                                <!--Horizontal Form-->
-                                <!--===================================================-->
-                                <form class="form-horizontal" style="border:1px solid rgba(0,0,0,0.07);"
-                                      id="updateForm">
-                                    <div class="panel-body">
-                                        <input type="hidden" name="rid">
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="demo-hor-inputemail">角色名称</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" placeholder="角色名称" id="demo-hor-inputemail"
-                                                       class="form-control" name="rname">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel-footer text-right">
-                                        <button class="btn btn-success" type="button" id="xgbtn">修改</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    </div>
-                                </form>
-                                <!--===================================================-->
-                                <!--End Horizontal Form-->
-
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >资源链接：</label>
+                                <div class="col-sm-9">
+                                    <input type="text" placeholder="资源链接："  class="form-control" name="relink">
+                                </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >资源图标：</label>
+                                <div class="col-sm-9">
+                                    <input type="text" placeholder="资源图标："  class="form-control" name="rebianhao">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="panel-footer text-right">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button class="btn btn-success" type="button" id="xgbtn">修改</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <!-- FOOTER -->
     <!--===================================================-->
     <footer id="footer">
@@ -345,12 +345,10 @@
 <script src="plugins/jstree/jstree.min.js"></script>
 
 <%-- 引入bootstrapTable 的js插件 --%>
-<script src="plugins/bootstrap-table/bootstrap-table.js"></script>
-<%-- 引入bootstrapTable 的语言包 --%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
+<script src="plugins/bootstrap-table/bootstrap-table.min.js"></script>
 <script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
-<%-- 引入bootstrapTable的treegrid插件 --%>
-<script src="plugins/bootstrap-table/extensions/tree-column/jquery.treegrid.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap-table/1.12.0/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+<script src="plugins/bootstrap-table/extensions/treegrid/bootstrap-table-treegrid.js"></script>
 
 <%-- Live2D动画的插件--%>
 <script src="./lib/L2Dwidget.min.js"></script>
@@ -361,17 +359,17 @@
                 "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
             "scale": 0.8
         }, "display": {
-            "position": "left", "width":200, "height": 270,
+            "position": "left", "width": 200, "height": 270,
             "hOffset": 40, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
-        "react": {opacity: 0.6},
+        "react": {opacity: 0.8},
         dialog: {
             // 开启对话框
             enable: true,
             script: {
                 // 每空闲 10 秒钟，显示一条一言
-                'every idle 10s': '$hitokoto$',
+                'every idle 8s': '$hitokoto$',
                 // 当触摸到星星图案
                 'hover .star': '星星在天上而你在我心里 (*/ω＼*)',
                 // 当触摸到角色身体
@@ -431,130 +429,100 @@
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
 <script type="text/javascript">
-    var $table = $('#resource-table');
-    var data = JSON.parse(
-        '[{"aid":1,"opid":0,"status":1,"rename":"用户管理","permissionValue":"open:user:manage"},' +
-        '{"aid":2,"opid":0,"status":1,"rename":"系统管理","permissionValue":"open:system:manage"},' +
-        '{"aid":3,"opid":1,"status":1,"rename":"新增用户","permissionValue":"open:user:add"},' +
-        '{"aid":4,"opid":1,"status":1,"rename":"修改用户","permissionValue":"open:user:edit"},' +
-        '{"aid":5,"opid":1,"status":0,"rename":"删除用户","permissionValue":"open:user:del"},' +
-        '{"aid":6,"opid":2,"status":1,"rename":"系统配置管理","permissionValue":"open:systemconfig:manage"},' +
-        '{"aid":7,"opid":6,"status":1,"rename":"新增配置","permissionValue":"open:systemconfig:add"},' +
-        '{"aid":8,"opid":6,"status":1,"rename":"修改配置","permissionValue":"open:systemconfig:edit"},' +
-        '{"aid":9,"opid":6,"status":0,"rename":"删除配置","permissionValue":"open:systemconfig:del"},' +
-        '{"aid":10,"opid":2,"status":1,"rename":"系统日志管理","permissionValue":"open:log:manage"},' +
-        '{"aid":11,"opid":10,"status":1,"rename":"新增日志","permissionValue":"open:log:add"},' +
-        '{"aid":12,"opid":10,"status":1,"rename":"修改日志","permissionValue":"open:log:edit"},' +
-        '{"aid":13,"opid":10,"status":0,"rename":"删除日志","permissionValue":"open:log:del"}]');
+    var $table = $('#resource-table')
+    //构建datatable
+    $table.bootstrapTable('destroy').bootstrapTable({
+        destroy:true,
+        toolbar:"#btntest1",
+        idField: "reid",//设置列为选中列
+        url: "../system/getresource",
+        locale: 'zh-CN',
+        pagination: true,//分页
+        pageNumber:1,//默认显示第1也
+        pageSize:10,//每页显示的数量
+        pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
+        search: true,//搜索
+        sidePagination:'server',//设置服务器端分页*********************
+        showRefresh:true, //显示刷新按钮
+        showColumns:true,//显示列刷选
 
-    $(function() {
+        striped: true,
+        columns: [
+            {
+                checkbox:true,
 
-        //控制台输出一下数据
-        console.log(data);
-
-        $table.bootstrapTable({
-            data:data,
-            idField: 'aid',
-            dataType:'jsonp',
-            columns: [
-                { field: 'check',  checkbox: true, formatter: function (value, row, index) {
-                        if (row.check == true) {
-                            // console.log(row.serverName);
-                            //设置选中
-                            return {  checked: true };
-                        }
-                    }
+            },
+            {
+                field:"reid",
+                visible:false,
+            },
+            {
+                field: "resourcename",
+            },
+            {
+                field: "relink",
+            },
+            {
+                field: "rebianhao",
+                formatter:function(val){
+                    return '<span class="'+val+'"></span>'
                 },
-                { field: 'rename',  title: '名称' },
-                // {field: 'id', title: '编号', sortable: true, align: 'center'},
-                // {field: 'pid', title: '所属上级'},
-                { field: 'status',  title: '状态', sortable: true,  align: 'center', formatter: 'statusFormatter'  },
-                { field: 'permissionValue', title: '权限值'  },
-                { field: 'operate', title: '操作', align: 'center', events : operateEvents, formatter: 'operateFormatter' },
-            ],
+                sortable:true,
 
-            // bootstrap-table-treegrid.js 插件配置 -- start
-
-            //在哪一列展开树形
-            treeShowField: 'rename',
-            //指定父id列
-            parentIdField: 'opid',
-
-            onResetView: function(data) {
-                //console.log('load');
-                $table.treegrid({
-                    initialState: 'collapsed',// 所有节点都折叠
-                    // initialState: 'expanded',// 所有节点都展开，默认展开
-                    treeColumn: 1,
-                     expanderExpandedClass: 'glyphicon glyphicon-minus',  //图标样式
-                     expanderCollapsedClass: 'glyphicon glyphicon-plus',
-                    onChange: function() {
-                        $table.bootstrapTable('resetWidth');
+            },
+            {
+                field: "rejigouid",
+                formatter:function (val,row) {
+                    if(val==0){
+                        return '<div class="label label-table label-danger">一级资源</div>'
+                    }else if(val==1){
+                        return '<div class="label label-table label-success">二级资源</div>'
+                    }else if(val==2){
+                        return '<div class="label label-table label-warning">页面按钮</div>'
                     }
-                });
 
-                //只展开树形的第一级节点
-                $table.treegrid('getRootNodes').treegrid('expand');
-
+                }
             },
-            onCheck:function(row){
-                var datas = $table.bootstrapTable('getData');
-                // 勾选子类
-                selectChilds(datas,row,"id","pid",true);
-
-                // 勾选父类
-                selectParentChecked(datas,row,"id","pid")
-
-                // 刷新数据
-                $table.bootstrapTable('load', datas);
+            {
+                field: "reopjigouid",
             },
 
-            onUncheck:function(row){
-                var datas = $table.bootstrapTable('getData');
-                selectChilds(datas,row,"id","pid",false);
-                $table.bootstrapTable('load', datas);
-            },
-            // bootstrap-table-treetreegrid.js 插件配置 -- end
-        });
+            {
+                field: null,
+                events: window.operateEvents,
+                align: 'center',
+                clickToSelect: true,
+                formatter:function (value, row, index) {
+
+                    return '<a href="javascript:void(0)" class="xiugai" data-target="#xiugai" data-toggle="modal" ><i class="myfont icon-tianxie"></i></a>' +
+                        '<a href="javascript:void(0)" class="shanchu" reid="'+row.reid+'"><i class="myfont icon-shanchu"></i></a>'
+                }
+            }
+        ],
+        treeShowField: 'resourcename',
+        parentIdField: 'reopjigouid',
+
+        onResetView: function(data) {
+
+            $table.treegrid({
+                initialState: 'expanded',// 所有节点都折叠
+                // initialState: '',// 所有节点都展开，默认展开
+                treeColumn: 1,
+                expanderExpandedClass: 'glyphicon glyphicon-triangle-right',  //图标样式
+                expanderCollapsedClass: 'glyphicon glyphicon-triangle-bottom',
+                onChange: function() {
+                    $table.bootstrapTable('resetWidth');
+                }
+            });
+
+            //只展开树形的第一级节点
+            $table.treegrid('getRootNodes').treegrid('expand');
+
+        },
+
+
+
     });
-
-    // 格式化按钮
-    function operateFormatter(value, row, index) {
-        return [
-            '<button type="button" class="RoleOfadd btn-small  btn-primary" style="margin-right:15px;"><i class="fa fa-plus" ></i>&nbsp;新增</button>',
-            '<button type="button" class="RoleOfedit btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-pencil-square-o" ></i>&nbsp;修改</button>',
-            '<button type="button" class="RoleOfdelete btn-small   btn-primary" style="margin-right:15px;"><i class="fa fa-trash-o" ></i>&nbsp;删除</button>'
-        ].join('');
-
-    }
-    // 格式化类型
-    function typeFormatter(value, row, index) {
-        if (value === 'menu') {  return '菜单';  }
-        if (value === 'button') {  return '按钮'; }
-        if (value === 'api') {  return '接口'; }
-        return '-';
-    }
-    // 格式化状态
-    function statusFormatter(value, row, index) {
-        if (value === 1) {
-            return '<span class="label label-success">正常</span>';
-        } else {
-            return '<span class="label label-default">锁定</span>';
-        }
-    }
-
-    //初始化操作按钮的方法
-    window.operateEvents = {
-        'click .RoleOfadd': function (e, value, row, index) {
-            add(row.id);
-        },
-        'click .RoleOfdelete': function (e, value, row, index) {
-            del(row.id);
-        },
-        'click .RoleOfedit': function (e, value, row, index) {
-            update(row.id);
-        }
-    };
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
 <%--  修改操作模态框 js --%>

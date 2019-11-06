@@ -18,18 +18,9 @@ public class SysResourceDaoImpl implements SysResourceDao {
         return sessionFactory.getCurrentSession();
     }
     @Override
-    public List<Resource> getresource() {
-        String hql="SELECT\n" +
-                "\tsr2.reid AS reid,\n" +
-                "\tsr2.resourcename AS resourcename,\n" +
-                "\tsr2.relink AS relink,\n" +
-                "\tsr2.rebianhao AS rebianhao,\n" +
-                "\tsr2.rejigouid AS rejigouid,\n" +
-                "\tsr1.resourcename AS zicaidan \n" +
-                "FROM\n" +
-                "\tresource AS sr1\n" +
-                "\tINNER JOIN resource AS sr2 ON sr2.reopjigouid = sr1.reid";
-        Query sqlQuery = getSession().createSQLQuery(hql).addEntity(Resource.class);
-        return sqlQuery.list();
+    public List<Resource> getresource(String offset, String limit) {
+       String hql="from Resource";
+        Query query = getSession().createQuery(hql);
+        return query.list();
     }
 }
