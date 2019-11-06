@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-public class SysResourceDaoImpl implements SysResourceDao {
+public class SysResourceDaoImpl implements SysResourceDao{
     @Autowired
     private SessionFactory sessionFactory;
     public Session getSession() {
@@ -22,5 +22,32 @@ public class SysResourceDaoImpl implements SysResourceDao {
        String hql="from Resource";
         Query query = getSession().createQuery(hql);
         return query.list();
+    }
+
+    @Override
+    public boolean deleteResourceById(String reid) {
+        String hql="delete from Resource where reid="+reid;
+        int i = getSession().createQuery(hql).executeUpdate();
+        if(i>0)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateResourceMess(Resource resource) {
+        String hql="update Resource set resourcename=:resourcename,relink=:relink,rebianhao=:rebianhao where reid=:reid";
+        Query query = getSession().createQuery(hql);
+        query.setString("resourcename", resource.getResourcename());
+        query.setString("relink", resource.getRelink());
+        query.setString("rebianhao", resource.getRebianhao());
+        query.setInteger("reid", resource.getReid());
+        int i = query.executeUpdate();
+        if(i>0)
+        {
+            return true;
+        }
+        return false;
     }
 }

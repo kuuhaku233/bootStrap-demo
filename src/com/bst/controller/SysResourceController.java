@@ -15,9 +15,26 @@ public class SysResourceController {
     @Autowired
     private SysResourceService sysResourceService;
 
+    //查询系统资源信息
     @RequestMapping("getresource")
     @ResponseBody
     List<Resource> getresource(String offset, String limit) {
         return sysResourceService.getresource( offset,  limit);
+    }
+
+    //删除资源记录
+    @RequestMapping("delresource")
+    @ResponseBody
+    public boolean deleteResourceById(String reid)
+    {
+        return sysResourceService.deleteResourceById(reid);
+    }
+
+    //修改资源信息
+    @RequestMapping("updateresource")
+    @ResponseBody
+    public boolean updateResourceMess(Resource resource)
+    {
+        return sysResourceService.updateResourceMess(resource);
     }
 }

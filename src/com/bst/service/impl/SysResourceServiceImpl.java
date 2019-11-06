@@ -17,4 +17,14 @@ public class SysResourceServiceImpl implements SysResourceService {
     public List<Resource> getresource(String offset, String limit) {
         return sysResourceDao.getresource(offset, limit);
     }
+
+    @Override
+    public boolean deleteResourceById(String reid) {
+        return sysResourceDao.deleteResourceById(reid);
+    }
+
+    @Override
+    public boolean updateResourceMess(Resource resource) {
+        return sysResourceDao.updateResourceMess(resource);
+    }
 }

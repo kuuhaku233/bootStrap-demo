@@ -37,6 +37,8 @@
         
     <!--Demo [ DEMONSTRATION ]-->
     <link href="css/demo/nifty-demo.min.css" rel="stylesheet">
+    <%-- 引入自己的字体图标库 --%>
+	<link href="css/demo/myfonts/iconfont.css" rel="stylesheet">
 
         
 </head>
@@ -79,9 +81,9 @@
 		
 		            <div class="media pad-top bord-top">
 		                <div class="pull-right">
-		                    <a href="#" class="pad-rgt"><i class="demo-psi-facebook icon-lg text-primary"></i></a>
-		                    <a href="#" class="pad-rgt"><i class="demo-psi-twitter icon-lg text-info"></i></a>
-		                    <a href="#" class="pad-rgt"><i class="demo-psi-google-plus icon-lg text-danger"></i></a>
+		                    <a href="#" class="pad-rgt"><i class="myfont icon-11qq"></i></a>
+		                    <a href="#" class="pad-rgt"><i class="myfont icon-iconfontrectangle390"></i></a>
+		                    <a href="#" class="pad-rgt"><i class="myfont icon-weixin-copy"></i></a>
 		                </div>
 		                <div class="media-body text-left text-bold text-main">
 		                    第三方登录

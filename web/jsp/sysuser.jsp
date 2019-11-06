@@ -601,9 +601,6 @@
                                         height:'150px',
                                         width:'150px'},3000);
                                     dt.draw(false);
-
-
-
                                     $.niftyNoty({
                                         type: 'info',
                                         icon : 'pli-exclamation icon-2x',

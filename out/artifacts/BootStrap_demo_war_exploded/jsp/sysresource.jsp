@@ -55,7 +55,7 @@
     <%-- bootstrapTable的css--%>
     <link href="plugins\bootstrap-table\bootstrap-table.css" rel="stylesheet">
     <%-- 引入bootstrapTable的treegrid css --%>
-    <link href="plugins/bootstrap-table/extensions/treegrid/jquery.treegrid.css"  rel="stylesheet">
+    <link href="plugins/bootstrap-table/extensions/treegrid/jquery.treegrid.css" rel="stylesheet">
 
 </head>
 
@@ -150,52 +150,7 @@
     </div>
     <!-- Button trigger modal -->
 
-    <!-- 修改内容的弹出框 -->
-    <div class="modal" tabindex="-1" role="dialog" id="xiugai">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="pci-cross pci-circle"></i></button>
-                    <h4 class="modal-title">系统资源修改界面</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" id="formupdate">
-                        <input type="hidden" name="reid">
-                        <input type="hidden" name="rejigouid">
-                        <input type="hidden" name="reopjigouid">
-                        <div class="panel-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源名称：</label>
-                                <div class="col-sm-9">
-                                    <input type="text" placeholder="资源名称："  class="form-control" name="resourcename">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源链接：</label>
-                                <div class="col-sm-9">
-                                    <input type="text" placeholder="资源链接："  class="form-control" name="relink">
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源图标：</label>
-                                <div class="col-sm-9">
-                                    <input type="text" placeholder="资源图标："  class="form-control" name="rebianhao">
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="panel-footer text-right">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                            <button class="btn btn-success" type="button" id="xgbtn">修改</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
     <!-- FOOTER -->
     <!--===================================================-->
     <footer id="footer">
@@ -236,7 +191,53 @@
 
 </div>
 <!--===================================================-->
-<!-- 修改内容的弹出框-->
+
+<!-- 修改内容的弹出框 -->
+<div class="modal" tabindex="-1" role="dialog" id="xiugai">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: 1px solid #ddd">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i
+                        class="pci-cross pci-circle"></i></button>
+                <h4 class="modal-title">系统资源修改界面</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="update">
+                    <input type="hidden" name="reid">
+                    <input type="hidden" name="rejigouid">
+                    <input type="hidden" name="reopjigouid">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">资源名称：</label>
+                            <div class="col-sm-9">
+                                <input type="text" placeholder="资源名称：" class="form-control" name="resourcename">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">资源链接：</label>
+                            <div class="col-sm-9">
+                                <input type="text" placeholder="资源链接：" class="form-control" name="relink">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">资源图标：</label>
+                            <div class="col-sm-9">
+                                <input type="text" placeholder="资源图标：" class="form-control" name="rebianhao">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button class="btn btn-success" type="button" id="xgbtn">修改</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 修改内容的弹出框 -->
 
 <%-- 新增用户的模态框 --%>
 <div class="modal" tabindex="-1" role="dialog" id="useradd">
@@ -277,43 +278,6 @@
 </div><!-- /.modal -->
 <%-- 新增用户的模态框 --%>
 
-<%-- 查看角色下的腰用户信息的模态框 --%>
-<div class="modal fade bs-example-modal-lg" id="showModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">角色用户信息界面</h4>
-            </div>
-            <div class="modal-body">
-                <div class="mar-btm">
-                    <h5>角色名称:<span id="roleName" style="color: red"></span></h5>
-                    <button class="btn-danger btn" disabled id="xiugaiyonghu">修改用户</button>
-                </div>
-                <table id="userShow" class="table table-striped table-bordered" cellspacing="0"
-                       width="100%">
-                    <thead>
-                    <tr>
-                        <th data-checkbox></th>
-                        <th>uid</th>
-                        <th class="min-desktop">用户名</th>
-                        <th class="min-desktop">邮箱</th>
-                        <th class="min-desktop">手机号</th>
-                        <th class="min-desktop">注册时间</th>
-                        <th class="min-desktop">注册地址</th>
-                        <th class="min-desktop">格言</th>
-                        <th class="min-desktop">操作</th>
-                    </tr>
-                    </thead>
-
-                </table>
-            </div>
-
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<%-- 查看角色下的腰用户信息的模态框--%>
 
 <!--JAVASCRIPT-->
 <!--=================================================-->
@@ -429,32 +393,109 @@
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
 <script type="text/javascript">
+    window.operateEvents = {
+        //删除资源操作
+        'click .shanchu': function (e, value, row, index) {
+            bootbox.confirm({
+                size: "small",
+                message: "确认要删除该条数据吗？",
+                buttons: {
+                    confirm: {
+                        label: '删除',
+                        className: 'btn-danger'
+                    },
+                    cancel: {
+                        label: '取消',
+
+                    }
+                },
+                callback: function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "../system/delresource",
+                            data: "reid=" + row.reid,
+                            success: function (data) {
+                                if (data) {
+                                    $table.bootstrapTable('remove', {
+                                        field: 'reid',
+                                        values: [row.reid]
+                                    })
+                                    $.niftyNoty({
+                                        type: 'info',
+                                        icon: 'pli-exclamation icon-2x',
+                                        message: '删除数据成功',
+                                        container: 'floating',
+                                        timer: 3000
+                                    });
+
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+        },
+        //删除资源操作
+
+        //修改资源操作
+        'click .xiugai': function (e, value, row, index) {
+            $("#update input[name=resourcename]").val(row.resourcename);
+            $("#update input[name=reid]").val(row.reid);
+            $("#update input[name=relink]").val(row.relink);
+            $("#update input[name=rebianhao]").val(row.rebianhao);
+            $("#xgbtn").on("click", function () {
+                $.ajax({
+                    url: "../system/updateresource",
+                    data: $("#update").serialize(),
+                    success: function (data) {
+                        if (data) {
+                            $("#xiugai").modal("hide");
+                            $.niftyNoty({
+                                type: 'info',
+                                icon: 'pli-exclamation icon-2x',
+                                message: '修改数据成功',
+                                container: 'floating',
+                                timer: 3000
+                            });
+                        }
+                        $("#resource-table").bootstrapTable("refresh", {
+                            silent: true //静态刷新
+                        });
+
+                    }
+                });
+            });
+        }
+        //修改资源操作
+
+    }
     var $table = $('#resource-table')
     //构建datatable
     $table.bootstrapTable('destroy').bootstrapTable({
-        destroy:true,
-        toolbar:"#btntest1",
+        destroy: true,
+        toolbar: "#btntest1",
         idField: "reid",//设置列为选中列
         url: "../system/getresource",
         locale: 'zh-CN',
         pagination: true,//分页
-        pageNumber:1,//默认显示第1也
-        pageSize:10,//每页显示的数量
+        pageNumber: 1,//默认显示第1也
+        pageSize: 10,//每页显示的数量
         pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
         search: true,//搜索
-        sidePagination:'server',//设置服务器端分页*********************
-        showRefresh:true, //显示刷新按钮
-        showColumns:true,//显示列刷选
+        sidePagination: 'server',//设置服务器端分页*********************
+        showRefresh: true, //显示刷新按钮
+        showColumns: true,//显示列刷选
+        silent: true,
 
         striped: true,
         columns: [
             {
-                checkbox:true,
+                checkbox: true,
 
             },
             {
-                field:"reid",
-                visible:false,
+                field: "reid",
+                visible: false,
             },
             {
                 field: "resourcename",
@@ -464,20 +505,20 @@
             },
             {
                 field: "rebianhao",
-                formatter:function(val){
-                    return '<span class="'+val+'"></span>'
+                formatter: function (val) {
+                    return '<span class="' + val + '"></span>'
                 },
-                sortable:true,
+                sortable: true,
 
             },
             {
                 field: "rejigouid",
-                formatter:function (val,row) {
-                    if(val==0){
+                formatter: function (val, row) {
+                    if (val == 0) {
                         return '<div class="label label-table label-danger">一级资源</div>'
-                    }else if(val==1){
+                    } else if (val == 1) {
                         return '<div class="label label-table label-success">二级资源</div>'
-                    }else if(val==2){
+                    } else if (val == 2) {
                         return '<div class="label label-table label-warning">页面按钮</div>'
                     }
 
@@ -492,17 +533,17 @@
                 events: window.operateEvents,
                 align: 'center',
                 clickToSelect: true,
-                formatter:function (value, row, index) {
+                formatter: function (value, row, index) {
 
                     return '<a href="javascript:void(0)" class="xiugai" data-target="#xiugai" data-toggle="modal" ><i class="myfont icon-tianxie"></i></a>' +
-                        '<a href="javascript:void(0)" class="shanchu" reid="'+row.reid+'"><i class="myfont icon-shanchu"></i></a>'
+                        '<a href="javascript:void(0)" class="shanchu" reid="' + row.reid + '"><i class="myfont icon-shanchu"></i></a>'
                 }
             }
         ],
         treeShowField: 'resourcename',
         parentIdField: 'reopjigouid',
 
-        onResetView: function(data) {
+        onResetView: function (data) {
 
             $table.treegrid({
                 initialState: 'expanded',// 所有节点都折叠
@@ -510,7 +551,7 @@
                 treeColumn: 1,
                 expanderExpandedClass: 'glyphicon glyphicon-triangle-right',  //图标样式
                 expanderCollapsedClass: 'glyphicon glyphicon-triangle-bottom',
-                onChange: function() {
+                onChange: function () {
                     $table.bootstrapTable('resetWidth');
                 }
             });
@@ -521,110 +562,10 @@
         },
 
 
-
     });
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
-<%--  修改操作模态框 js --%>
-<script>
-    //修改操作  模态框
-    $(function () {
-        $("#resource-table").on("click", ".xiugai", function () {
-            $("#myModal").modal('show');
-            var thisindex = $(this).parent().parent().index();
-            //构建datatable的变量  获取表格每行的数据
-            t = $("#resource-table").DataTable();
-            var rid = t.row(thisindex).data().rid;
-            var rname = t.row(thisindex).data().rname;
 
-            //把当前的数据付给弹出框
-            $("#updateForm input[name=rname]").val(rname);
-            $("#updateForm input[name=rid]").val(rid);
-
-            //ajax调用后台
-            $("#updateForm").on("click", "#xgbtn", function () {
-                //判断  表单验证的 结果
-                var flag = $("#updateForm").data("bootstrapValidator").validate().isValid();
-                if (!flag) {
-                    return;
-                }
-                $.ajax({
-                        url: "../system/update",
-                        data: $("#updateForm").serialize(),
-                        success: function (data) {
-                            if (data == true) {
-                                $("#myModal").modal("hide");
-                                t.ajax.reload();
-                                $.niftyNoty({
-                                    type: 'info',
-                                    icon: 'pli-exclamation icon-2x',
-                                    message: '修改数据成功',
-                                    container: 'floating',
-                                    timer: 3000
-                                });
-                            }
-                        }
-                    }
-                );
-            })
-        })
-    });
-</script>
-
-<%-- 删除操作 --%>
-<script>
-    $(function () {
-            // 根据表格数据的id  删除一行元素
-            $("#resource-table").on("click", ".delbtn", function () {
-                var $_this = $(this).parent().parent();
-                //datatable取值，先获取行号
-                var thisindex = $(this).parent().parent().index();
-                //构建datatable的变量
-                var t = $("#resource-table").DataTable();
-                var rid = t.row(thisindex).data().rid;
-                var ruser = t.row(thisindex).data().ruser;
-                if (ruser > 0) {
-                    bootbox.alert("不能删除该条记录");
-                    return;
-                }
-                bootbox.confirm({
-                    message: "确定要删除本条记录吗?",
-                    buttons: {
-                        confirm: {
-                            label: 'Yes',
-                            className: 'btn-success'
-                        },
-                        cancel: {
-                            label: 'No',
-                            className: 'btn-danger'
-                        }
-                    },
-                    callback: function (result) {
-                        if (result) {
-                            //构建datatable的变量  获取表格每行的数据
-                            $.ajax({
-                                url: '../system/delete',
-                                data: 'rid=' + rid,
-                                success: function (data) {
-                                    if (data == true) {
-                                        t.ajax.reload();
-                                        $.niftyNoty({
-                                            type: 'info',
-                                            icon: 'pli-exclamation icon-2x',
-                                            message: '删除记录成功',
-                                            container: 'floating',
-                                            timer: 3000
-                                        });
-                                    }
-                                }
-                            });
-                        }
-                    }
-                })
-            })
-        }
-    );
-</script>
 <%-- 添加角色操作 --%>
 <script>
     $("#addbaocun").on("click", function () {
