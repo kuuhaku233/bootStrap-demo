@@ -14,4 +14,9 @@ public interface SysResourceService {
 
     //修改资源信息
     public boolean updateResourceMess(Resource resource);
+
+    public Resource updateTest(Resource resource);
+
+    //添加资源 下拉列表的级联
+    public List<Resource> getSelectVal(Integer rejigouid);
 }

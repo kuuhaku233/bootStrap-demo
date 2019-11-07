@@ -56,6 +56,8 @@
     <link href="plugins\bootstrap-table\bootstrap-table.css" rel="stylesheet">
     <%-- 引入bootstrapTable的treegrid css --%>
     <link href="plugins/bootstrap-table/extensions/treegrid/jquery.treegrid.css" rel="stylesheet">
+    <%-- 引入bootstrap select的css --%>
+    <link href="plugins/bootstrap-select/bootstrap-select.css" rel="stylesheet">
 
 </head>
 
@@ -244,24 +246,48 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">角色数据添加界面</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">资源信息添加界面</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="formadd">
 
                     <div class="panel-body">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">角色名称：</label>
+                            <label class="col-sm-3 control-label" >资源名称：</label>
                             <div class="col-sm-9">
-                                <input type="text" placeholder="角色名称" class="form-control" name="rname">
+                                <input type="text" placeholder="资源名称"  class="form-control" name="resourcename">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">角色所属公司：</label>
+                            <label class="col-sm-3 control-label" >资源链接：</label>
                             <div class="col-sm-9">
-                                <input type="text" placeholder="角色所属公司" class="form-control" name="rbianma">
+                                <input type="text" placeholder="资源链接"  class="form-control" name="relink">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >资源图标：</label>
+                            <div class="col-sm-9">
+                                <input type="text" placeholder="资源图标"  class="form-control" name="rebianhao">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >资源级别：</label>
+                            <div class="col-sm-9">
+                                <select class="selectpicker" name="rejigouid" class="form-control" id="select1">
+                                    <option value=" " selected>..请选择..</option>
+                                    <option value="0">一级资源</option>
+                                    <option value="1">二级资源</option>
+                                    <option value="2">三级资源</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >资源所属：</label>
+                            <div class="col-sm-9">
+                                <select class="selectpicker" name="reopjigouid" class="form-control" id="select2" disabled>
+
+                                </select>
                             </div>
                         </div>
 
@@ -311,8 +337,12 @@
 <%-- 引入bootstrapTable 的js插件 --%>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-treegrid/0.2.0/js/jquery.treegrid.min.js"></script>
 <script src="plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<%-- 引入bootstrapTable的语言包 --%>
 <script src="plugins/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+<%-- 引入treegrid插件 --%>
 <script src="plugins/bootstrap-table/extensions/treegrid/bootstrap-table-treegrid.js"></script>
+<%-- 引入bootstrap select的插件--%>
+<script src="plugins/bootstrap-select/bootstrap-select.js"></script>
 
 <%-- Live2D动画的插件--%>
 <script src="./lib/L2Dwidget.min.js"></script>
@@ -443,7 +473,7 @@
             $("#update input[name=reid]").val(row.reid);
             $("#update input[name=relink]").val(row.relink);
             $("#update input[name=rebianhao]").val(row.rebianhao);
-            $("#xgbtn").on("click", function () {
+            $("#update").off("click").on("click","#xgbtn", function () {
                 $.ajax({
                     url: "../system/updateresource",
                     data: $("#update").serialize(),
@@ -455,12 +485,11 @@
                                 icon: 'pli-exclamation icon-2x',
                                 message: '修改数据成功',
                                 container: 'floating',
-                                timer: 3000
+                                timer: 3000,
                             });
+                            // alert("修改成功");
                         }
-                        $("#resource-table").bootstrapTable("refresh", {
-                            silent: true //静态刷新
-                        });
+                        $table.bootstrapTable('refresh');
 
                     }
                 });
@@ -469,7 +498,7 @@
         //修改资源操作
 
     }
-    var $table = $('#resource-table')
+     $table = $('#resource-table')
     //构建datatable
     $table.bootstrapTable('destroy').bootstrapTable({
         destroy: true,
@@ -549,8 +578,8 @@
                 initialState: 'expanded',// 所有节点都折叠
                 // initialState: '',// 所有节点都展开，默认展开
                 treeColumn: 1,
-                expanderExpandedClass: 'glyphicon glyphicon-triangle-right',  //图标样式
-                expanderCollapsedClass: 'glyphicon glyphicon-triangle-bottom',
+                expanderExpandedClass: 'glyphicon glyphicon-triangle-bottom',  //图标样式
+                expanderCollapsedClass: 'glyphicon glyphicon-triangle-right',
                 onChange: function () {
                     $table.bootstrapTable('resetWidth');
                 }
@@ -566,207 +595,47 @@
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
 
-<%-- 添加角色操作 --%>
-<script>
-    $("#addbaocun").on("click", function () {
-        var dt = $("#resource-table").DataTable();
-        var flag = $("#formadd").data("bootstrapValidator").validate().isValid();
-        if (!flag) {
-            return;
-        }
-        $.ajax({
-            url: "../system/save",
-            data: $("#formadd").serialize(),
-            success: function (data) {
-                $("#useradd").modal("hide");
-                $.niftyNoty({
-                    type: 'info',
-                    icon: 'pli-exclamation icon-2x',
-                    message: '新增数据成功',
-                    container: 'floating',
-                    timer: 3000
-                });
-                dt.ajax.reload();
-            }
-        })
-    })
-</script>
-
-<%-- 查找操作  --%>
+<%-- 处理下拉列表的级联 --%>
 <script>
     $(function () {
-            $("#search").change(function () {
-                var search = $("#search").val();
+        $("#select1").on("change",function () {
+            $("#select2").empty();
+            var select1Val=$("#select1 option:selected").val();
+            console.log("val:"+select1Val)
+
+            if(select1Val!=0)
+            {
+                $("#select2").prop("disabled",false);
                 $.ajax({
-                    url: "../test/search",
-                    data: "search[value]=" + search,
+                    url:"../system/selectval",
+                    data:"rejigouid="+select1Val,
+                    success:function (data) {
 
-                })
-
-            })
-        }
-    );
-</script>
-<%-- 显示角色名称下的人员信息 --%>
-<script>
-    $("#resource-table").on("click", ".showbtn", function () {
-        $("#showModal").modal('show');
-        var thisindex = $(this).parent().parent().index();
-        //构建datatable的变量  获取表格每行的数据
-        t = $("#resource-table").DataTable();
-        var rid = t.row(thisindex).data().rid;
-        var rname = t.row(thisindex).data().rname;
-        $("#roleName").text(rname);
-        $('#userShow').dataTable({
-            destroy: true,  //允许表格自动清除
-            "ordering": false,  //关闭排序功能
-            "searching": true,  // false  关闭搜索框
-            "ajax": {
-                "url": "../system/getroleuser?rid=" + rid,
-                //默认为data,这里定义为空，则只需要传不带属性的数据
-                "dataSrc": ""
-            },
-            "columns": [
-
-                {
-                    data: "uid",
-                    render: function (data) {
-
-                        return '<input  class="dfcheckbox" type="checkbox" name="uidcheck" value="' + data + '" checked="true" >'
-                    },
-                    orderable: false,//排序
-                },
-                {"data": "uid", "visible": false,},
-                {"data": "username",},
-                {"data": "email",},
-                {"data": "phone",},
-                {"data": "register_time", orderable: true},
-                {"data": "register_address",},
-                {"data": "signed",},
-                {
-                    "data": null,
-                    /*defaultContent  添加默认值*/
-                    defaultContent: '<a href="javascript::##" class="xiugai"><i class="myfont icon-tianxie"></i></a>' +
-                    '<a href="javascript::##" class="delbtn"><i class="myfont icon-shanchu"></i></a>',
-                    orderable: false  //关闭该列数据排序
-                }
-            ],
-            language: {
-                "sProcessing": "处理中...",
-                "sLengthMenu": "显示 _MENU_ 项结果",
-                "sZeroRecords": "没有匹配结果",
-                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-                "sInfoPostFix": "",
-                "sSearch": "搜索:",
-                "sUrl": "",
-                "sEmptyTable": "表中数据为空",
-                "sLoadingRecords": "载入中...",
-                "sInfoThousands": ",",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页"
-                },
-                "oAria": {
-                    "sSortAscending": ": 以升序排列此列",
-                    "sSortDescending": ": 以降序排列此列"
-                }
-            },
-
-        });
-    });
-</script>
-<%-- 显示角色名称下的人员信息 --%>
-
-<%-- 日期转换 --%>
-<script>
-    Date.prototype.format = function (fmt) {
-        var o = {
-            "M+": this.getMonth() + 1,                 //月份
-            "d+": this.getDate(),                    //日
-            "h+": this.getHours(),                   //小时
-            "m+": this.getMinutes(),                 //分
-            "s+": this.getSeconds(),                 //秒
-            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-            "S": this.getMilliseconds()             //毫秒
-        };
-        if (/(y+)/.test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        }
-        for (var k in o) {
-            if (new RegExp("(" + k + ")").test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                        console.log(data);
+                        for(var i=0;i<data.length;i++)
+                        {
+                            $("#select2").append(
+                                '<option value="'+data[i].reid+'">'+data[i].resourcename+'</option>'
+                            )
+                        }
+                        $('#select2').selectpicker('refresh');
+                        $('#select2').selectpicker('render');
+                    }
+                });
             }
-        }
-        return fmt;
-    }
-</script>
-
-<%-- 处理角色信息的复选框 --%>
-<script>
-    var checkvalues = ["ALL"];
-    console.log(checkvalues)
-    //全选按钮的点击
-    $("#CheckedAll").click(function () {
-        $("#xiugaiyonghu").prop("disabled", false);
-        //所有checkbox跟着全选的checkbox走。
-        $('[name=uidcheck]:checkbox').prop("checked", this.checked);
-        //判断一下是否是选中状态
-        if ($("#CheckedAll").prop("checked")) {
-            /*$("#roleusermess input[name=uidcheck]").each(function () {
-
-                checkvalues.push( $(this).val())
-            })*/
-            checkvalues = ["ALL"]
-            console.log(checkvalues);
-
-        } else {
-            checkvalues = [];
-            console.log(checkvalues);
-        }
-    });
-
-    //单个复选框点击
-    $("#userShow").on("click", ".dfcheckbox", function () {
-        $("#xiugaiyonghu").prop("disabled", false);
-        //定义一个临时变量，避免重复使用同一个选择器选择页面中的元素，提升程序效率。
-        var $tmp = $('[name=uidcheck]:checkbox');
-        //用filter方法筛选出选中的复选框。并直接给CheckedAll赋值。
-        $('#CheckedAll').prop('checked', $tmp.length == $tmp.filter(':checked').length);
-
-        if ($(this).prop("checked")) {
-            for (var i = 0; i < checkvalues.length; i++) {
-                if ($(this).val() == checkvalues[i]) {
-                    checkvalues.splice(i, 1);
-                    break;
-                }
+            else {
+                $("#select2").empty();
+                $("#select2").attr("disabled","true");
+                $('#select2').selectpicker('refresh');
+                $('#select2').selectpicker('render');
             }
-            console.log(checkvalues)
-        } else {
-
-            checkvalues.push($(this).val());
-
-            console.log(checkvalues)
-        }
 
 
-    });
 
-    $("#xiugaiyonghu").click(function () {
-        $.ajax({
-            url: "",
-            data: "checkvalues=" + checkvalues,
-            success: function () {
-
-            }
         })
+
     });
 </script>
-
-
 </body>
 </html>
 

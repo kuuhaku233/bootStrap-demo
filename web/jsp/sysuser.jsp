@@ -41,6 +41,8 @@
     <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
 
 
+
+
 </head>
 
 <body>
@@ -586,7 +588,7 @@
                 $("#userxiugai input[name=register_address]").val(register_address)
                 $("#userxiugai input[name=register_time]").val(register_time)
 
-                $("#xgbtn").on("click",function () {
+                $("#xgbtn").off("click").on("click",function () {
                     var vali=$("#formadd").data('bootstrapValidator').validate().isValid();
                     if(vali){
                         $.ajax({

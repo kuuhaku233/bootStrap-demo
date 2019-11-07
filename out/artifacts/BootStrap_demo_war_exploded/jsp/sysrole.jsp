@@ -485,7 +485,7 @@
                 $("#rolexiugai input[name=rid]").val(rid)
                 $("#rolexiugai input[name=rname]").val(rname)
 
-                $("#xgbtn").on("click",function () {
+                $("#xgbtn").off("click").on("click",function () {
                     var vali=$("#formupdate").data('bootstrapValidator').validate().isValid();
                     if(vali){
                         $.ajax({

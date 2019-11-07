@@ -50,4 +50,27 @@ public class SysResourceDaoImpl implements SysResourceDao{
         }
         return false;
     }
+
+    @Override
+    public Resource updateTest(Resource resource) {
+        String hql="update Resource set resourcename=:resourcename,relink=:relink,rebianhao=:rebianhao where reid=:reid";
+        Query query = getSession().createQuery(hql);
+        query.setString("resourcename", resource.getResourcename());
+        query.setString("relink", resource.getRelink());
+        query.setString("rebianhao", resource.getRebianhao());
+        query.setInteger("reid", resource.getReid());
+        int i = query.executeUpdate();
+        if(i>0)
+        {
+            return (Resource) getSession().get(Resource.class, resource.getReid());
+        }
+        else
+            return null;
+    }
+
+    @Override
+    public List<Resource> getSelectVal(Integer rejigouid) {
+        String hql="from Resource where rejigouid="+rejigouid;
+        return getSession().createQuery(hql).list();
+    }
 }

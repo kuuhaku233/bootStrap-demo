@@ -27,4 +27,14 @@ public class SysResourceServiceImpl implements SysResourceService {
     public boolean updateResourceMess(Resource resource) {
         return sysResourceDao.updateResourceMess(resource);
     }
+
+    @Override
+    public Resource updateTest(Resource resource) {
+        return sysResourceDao.updateTest(resource);
+    }
+
+    @Override
+    public List<Resource> getSelectVal(Integer rejigouid) {
+        return sysResourceDao.getSelectVal(rejigouid);
+    }
 }

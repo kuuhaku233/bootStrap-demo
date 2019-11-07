@@ -46,6 +46,11 @@
     <link href="plugins/jstree/themes/default/style.min.css" rel="stylesheet">
     <!--Font Awesome [ OPTIONAL ]-->
     <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+        .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
 </head>
 
 <body>
@@ -178,6 +183,21 @@
         <!-- END FOOTER -->
 
 
+        <div class="modal" tabindex="-1" role="dialog" id="ditu">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header" style="border-bottom: 1px solid #ddd">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="pci-cross pci-circle"></i></button>
+                        <h4 class="modal-title">地图信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="dituContent" style="width:100%;height:550px;border:#ccc solid 1px;"></div>
+                    </div>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
         <!-- SCROLL PAGE BUTTON -->
         <!--===================================================-->
         <button class="scroll-top btn">
@@ -248,39 +268,19 @@
 
                         <div class="panel-body">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源名称：</label>
+                                <label class="col-sm-3 control-label" >角色名称：</label>
                                 <div class="col-sm-9">
-                                    <input type="text" placeholder="资源名称"  class="form-control" name="resourcename">
+                                    <input type="text" placeholder="角色名称"  class="form-control" name="rname">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源链接：</label>
+                                <label class="col-sm-3 control-label" >角色所属公司：</label>
                                 <div class="col-sm-9">
-                                    <input type="text" placeholder="资源链接"  class="form-control" name="relink">
+                                    <input type="text" placeholder="角色所属公司"  class="form-control" name="rbianma">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源图标：</label>
-                                <div class="col-sm-9">
-                                    <input type="text" placeholder="资源图标"  class="form-control" name="rebianhao">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源级别：</label>
-                                <div class="col-sm-9">
-                                    <select class="selectpicker" name="rejigouid" class="form-control">
-                                        <option>一级资源</option>
-                                        <option>二级资源</option>
-                                        <option>三级资源</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" >资源所属：</label>
-                                <div class="col-sm-9">
-                                    <input type="text" placeholder="资源所属"  class="form-control" name="reopjigouid">
-                                </div>
-                            </div>
+
+
 
                         </div>
                         <div class="panel-footer text-right">
@@ -294,23 +294,6 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <%--查看角色下人员--%>
-    <div class="modal" tabindex="-1" role="dialog" id="roleusers">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="border-bottom: 1px solid #ddd">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">角色用户信息界面</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="mar-btm">
-                        <h4>角色名称：<span id="rolename" style="color: red"></span></h4>
-                    </div>
-                    </div>
-
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
     <!--jQuery [ REQUIRED ]-->
     <script src="js/jquery.min.js"></script>
@@ -336,97 +319,8 @@
     <!--JSTree [ OPTIONAL ]-->
     <script src="plugins/jstree/jstree.min.js"></script>
     <%--表单验证js--%>
-    <script>
-        $(function () {
-            $("#formadd,#formupdate").bootstrapValidator({
-                message: 'This value is not valid',
-                //验证显示的图标
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                //验证规则
-                fields:{
-                    username:{
-                        validators: {
-                            notEmpty: {
-                                message: '用户名不能为空'
-                            },
-                            stringLength: {
-                                min: 6,
-                                max: 18,
-                                message: '用户名长度必须在6到18位之间'
-                            },
-                        }
-                    },
-                    password:{
-                        validators: {
-                            notEmpty: {
-                                message: '密码不能为空'
-                            },
-                            stringLength: {
-                                min: 6,
-                                    max: 18,
-                                    message: '密码长度必须在6到18位之间'
-                            },
-                        }
-                    },
-                    email:{
-                        validators: {
-                            notEmpty: {
-                                message: '邮箱不能为空'
-                            },
-                            emailAddress: {
-                                message: '邮箱地址格式有误'
-                            }
-                        }
-                    },
 
-                    phone:{
-                        validators: {
-                            notEmpty: {
-                                message: '手机号不能为空'
-                            },
-                            regexp: {
-                                regexp: /^1[34578]\d{9}$/,
-                                message: '手机号格式不正确'
-                            },
-                            remote: {//ajax验证。server result:{"valid",true or false}
-                                url: "../system/userphoneyanzheng",
-                                message: '改手机号已经注册过',
-                                delay: 1000,//ajax刷新的时间是1秒一次
-                                type: 'POST',
-
-                                //自定义提交数据，默认值提交当前input value
-                                data:""
-                            }
-
-                        }
-                    },
-                    register_address:{
-                        validators: {
-                            notEmpty: {
-                                message: '注册地址不能为空'
-                            }
-                        }
-                    },
-                    register_time:{
-                        validators: {
-                            notEmpty: {
-                                message: '注册时间不能为空'
-                            }
-                        }
-                    },
-
-                }
-
-            })
-
-        })
-    </script>
-
-    <%-- bootstraptable 获取记录 --%>
+    <%--datatable--%>
     <script>
 
         $(function () {
@@ -437,23 +331,27 @@
                     $("#formupdate input[name=resourcename]").val(row.resourcename);
                     $("#formupdate input[name=relink]").val(row.relink);
                     $("#formupdate input[name=rebianhao]").val(row.rebianhao);
-                    $("#xgbtn").off("click").on("click",function () {
+                    $("#xgbtn").on("click",function () {
                         $.ajax({
                             url: "../system/testupdate",
                             data:$("#formupdate").serialize(),
                             success:function (data) {
                                 if(data!=null){
                                     $("#xiugai").modal('hide');
+                                    $table.bootstrapTable('refresh');
                                     console.log(data);
 
-                                    $table.bootstrapTable('updateByUniqueId', {
+                                   /* $table.bootstrapTable('updateByUniqueId', {
                                         id: row.reid,
                                         row: {
-                                            resourcename:data.resourcename,
-                                            relink:data.relink,
-                                            rebianhao:data.rebianhao,
+                                            reid:"reid",
+                                            resourcename:"resourcename",
+                                            relink:"relink",
+                                            rebianhao:"rebianhao",
+                                            rejigouid:"rejigouid",
+                                            reopjigouid:"reopjigouid"
                                         }
-                                    });
+                                    });*/
                                 }
                             }
                         })
@@ -579,7 +477,7 @@
                         clickToSelect: true,
                         formatter:function (value, row, index) {
 
-                            return '<a href="javascript:void(0)" class="xiugai" data-target="#xiugai" data-toggle="modal" ><i class="myfont icon-tianxie"></i></a>' +
+                            return '<a href="javascript:void(0)" class="xiugai" data-target="#ditu" data-toggle="modal" ><i class="myfont icon-tianxie"></i></a>' +
                                 '<a href="javascript:void(0)" class="shanchu" reid="'+row.reid+'"><i class="myfont icon-shanchu"></i></a>'
                         }
                     }
@@ -616,6 +514,99 @@
 
 
 
+    </script>
+
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap(){
+            createMap();//创建地图
+            setMapEvent();//设置地图事件
+            addMapControl();//向地图添加控件
+            addMarker();//向地图中添加marker
+        }
+
+        //创建地图函数：
+        function createMap(){
+            var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+            var point = new BMap.Point(112.712099,34.095494);//定义一个中心点坐标
+            map.centerAndZoom(point,8);//设定地图的中心点和坐标并将地图显示在地图容器中
+            window.map = map;//将map变量存储在全局
+        }
+
+        //地图事件设置函数：
+        function setMapEvent(){
+            map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+            map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+            map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+            map.enableKeyboard();//启用键盘上下左右键移动地图
+        }
+
+        //地图控件添加函数：
+        function addMapControl(){
+            //向地图中添加比例尺控件
+            var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+            map.addControl(ctrl_sca);
+        }
+
+        //标注点数组
+        var markerArr = [{title:"河南省郑州市",content:"到达郑州，下一站发往洛阳",point:"113.616181|34.781907",isOpen:0,icon:{w:23,h:25,l:0,t:21,x:9,lb:12}}
+            ,{title:"河南省洛阳市(终点)",content:"从郑州发往洛阳",point:"112.449938|34.675103",isOpen:0,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
+        ];
+        //创建marker
+        function addMarker(){
+            for(var i=0;i<markerArr.length;i++){
+                var json = markerArr[i];
+                var p0 = json.point.split("|")[0];
+                var p1 = json.point.split("|")[1];
+                var point = new BMap.Point(p0,p1);
+                var iconImg = createIcon(json.icon);
+                var marker = new BMap.Marker(point,{icon:iconImg});
+                var iw = createInfoWindow(i);
+                var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
+                marker.setLabel(label);
+                map.addOverlay(marker);
+                label.setStyle({
+                    borderColor:"#808080",
+                    color:"#333",
+                    cursor:"pointer"
+                });
+
+                (function(){
+                    var index = i;
+                    var _iw = createInfoWindow(i);
+                    var _marker = marker;
+                    _marker.addEventListener("click",function(){
+                        this.openInfoWindow(_iw);
+                    });
+                    _iw.addEventListener("open",function(){
+                        _marker.getLabel().hide();
+                    })
+                    _iw.addEventListener("close",function(){
+                        _marker.getLabel().show();
+                    })
+                    label.addEventListener("click",function(){
+                        _marker.openInfoWindow(_iw);
+                    })
+                    if(!!json.isOpen){
+                        label.hide();
+                        _marker.openInfoWindow(_iw);
+                    }
+                })()
+            }
+        }
+        //创建InfoWindow
+        function createInfoWindow(i){
+            var json = markerArr[i];
+            var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
+            return iw;
+        }
+        //创建一个Icon
+        function createIcon(json){
+            var icon = new BMap.Icon("http://map.baidu.com/image/us_cursor.gif", new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
+            return icon;
+        }
+
+        initMap();//创建和初始化地图
     </script>
 
 
