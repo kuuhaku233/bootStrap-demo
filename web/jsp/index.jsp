@@ -762,39 +762,7 @@
 
     <!--Specify page [ SAMPLE ]-->
     <script src="js/demo/dashboard.js"></script>
-	<script src="./lib/L2Dwidget.min.js"></script>
-	<script type="text/javascript">
-        $(function () {
-            L2Dwidget.init({
-                "model": {
-                    jsonPath:
-                        "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
-                    "scale": 0.8
-                }, "display": {
-                    "position": "left", "width":200, "height": 270,
-                    "hOffset": 40, "vOffset": 20,
 
-                }, "mobile": {"show": true, "scale": 0.5},
-                "react": {opacity: 0.7},
-                dialog: {
-                    // 开启对话框
-                    enable: true,
-                    script: {
-                        // 每空闲 10 秒钟，显示一条一言
-                        'every idle 10s': '$hitokoto$',
-                        // 当触摸到星星图案
-                        'hover .star': '星星在天上而你在我心里 (*/ω＼*)',
-                        // 当触摸到角色身体
-                        'tap body': '哎呀！别碰我！',
-                        // 当触摸到角色头部
-                        'tap face': '人家已经不是小孩子了！'
-                    }
-                }
-
-
-            });
-        });
-	</script>
 
 
 </body>

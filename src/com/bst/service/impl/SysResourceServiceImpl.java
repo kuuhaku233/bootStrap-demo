@@ -37,4 +37,9 @@ public class SysResourceServiceImpl implements SysResourceService {
     public List<Resource> getSelectVal(Integer rejigouid) {
         return sysResourceDao.getSelectVal(rejigouid);
     }
+
+    @Override
+    public Resource saveResource(Resource resource) {
+        return sysResourceDao.saveResource(resource);
+    }
 }

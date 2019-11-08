@@ -70,7 +70,18 @@ public class SysResourceDaoImpl implements SysResourceDao{
 
     @Override
     public List<Resource> getSelectVal(Integer rejigouid) {
-        String hql="from Resource where rejigouid="+rejigouid;
+        String hql="from Resource where rejigouid="+(rejigouid-1);
         return getSession().createQuery(hql).list();
+    }
+
+    @Override
+    public Resource saveResource(Resource resource) {
+        //判断属于几级资源
+        if(resource.getRejigouid()==0)
+        {
+            resource.setReopjigouid(0);
+        }
+        getSession().saveOrUpdate(resource);
+        return resource;
     }
 }

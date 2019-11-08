@@ -46,4 +46,12 @@ public class SysResourceController {
         return sysResourceService.getSelectVal(rejigouid);
     }
 
+    //新增资源记录
+    @RequestMapping("saveresource")
+    @ResponseBody
+    public Resource saveResource(Resource resource)
+    {
+        return sysResourceService.saveResource(resource);
+    }
+
 }

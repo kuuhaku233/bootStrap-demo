@@ -21,4 +21,7 @@ public interface SysResourceDao {
 
     //添加资源 下拉列表的级联
     public List<Resource> getSelectVal(Integer rejigouid);
+
+    //新增资源记录
+    public Resource saveResource(Resource resource);
 }

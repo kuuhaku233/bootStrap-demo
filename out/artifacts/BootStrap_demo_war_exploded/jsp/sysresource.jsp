@@ -251,7 +251,6 @@
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" id="formadd">
-
                     <div class="panel-body">
                         <div class="form-group">
                             <label class="col-sm-3 control-label" >资源名称：</label>
@@ -345,37 +344,7 @@
 <script src="plugins/bootstrap-select/bootstrap-select.js"></script>
 
 <%-- Live2D动画的插件--%>
-<script src="./lib/L2Dwidget.min.js"></script>
-<script type="text/javascript">
-    L2Dwidget.init({
-        "model": {
-            jsonPath:
-                "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
-            "scale": 0.8
-        }, "display": {
-            "position": "left", "width": 200, "height": 270,
-            "hOffset": 40, "vOffset": 20,
 
-        }, "mobile": {"show": true, "scale": 0.5},
-        "react": {opacity: 0.8},
-        dialog: {
-            // 开启对话框
-            enable: true,
-            script: {
-                // 每空闲 10 秒钟，显示一条一言
-                'every idle 8s': '$hitokoto$',
-                // 当触摸到星星图案
-                'hover .star': '星星在天上而你在我心里 (*/ω＼*)',
-                // 当触摸到角色身体
-                'tap body': '哎呀！别碰我！',
-                // 当触摸到角色头部
-                'tap face': '人家已经不是小孩子了！'
-            }
-        }
-
-
-    });
-</script>
 <%-- Live2D动画的插件--%>
 
 <%-- 注册 修改操作 表单验证 --%>
@@ -494,12 +463,13 @@
                     }
                 });
             });
-        }
+        },
         //修改资源操作
+
 
     }
      $table = $('#resource-table')
-    //构建datatable
+    //构建bootstrapTable
     $table.bootstrapTable('destroy').bootstrapTable({
         destroy: true,
         toolbar: "#btntest1",
@@ -591,6 +561,8 @@
         },
 
 
+
+
     });
 </script>
 <%-- 通过bootstrapTable获取数据 --%>
@@ -601,8 +573,6 @@
         $("#select1").on("change",function () {
             $("#select2").empty();
             var select1Val=$("#select1 option:selected").val();
-            console.log("val:"+select1Val)
-
             if(select1Val!=0)
             {
                 $("#select2").prop("disabled",false);
@@ -635,6 +605,34 @@
         })
 
     });
+
+    //新增资源操作
+    $("#addbaocun").on('click',function () {
+        $.ajax({
+            url:'../system/saveresource',
+            data:$("#formadd").serialize(),
+            success:function (data) {
+                if(data!=null)
+                {
+                    $table.bootstrapTable('prepend', data);
+                    $("#useradd").modal("hide");
+                    $.niftyNoty({
+                        type: 'info',
+                        icon: 'pli-exclamation icon-2x',
+                        message: '新增数据成功',
+                        container: 'floating',
+                        timer: 3000
+                    });
+                }
+        }
+        });
+
+
+    })
+
+
+
+    //新增资源操作
 </script>
 </body>
 </html>
