@@ -1,6 +1,7 @@
 package com.bst.service.impl;
 
 import com.bst.dao.SysPowerDao;
+import com.bst.pojo.Resource;
 import com.bst.service.SysPowerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,10 @@ public class SysPwoerServiceImpl implements SysPowerService {
     @Override
     public List<String> getPowerRole() {
         return sysPowerDao.getPowerRole();
+    }
+
+    @Override
+    public List<Resource> getPowerResource(String roleName) {
+        return sysPowerDao.getPowerResource(roleName);
     }
 }

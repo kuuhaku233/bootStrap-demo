@@ -7,59 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7055fa3-82b6-4889-aac2-66fdbfd12c7d" name="Default" comment="完成SQL查询 添加SysResource 没有完成ajax的调用">
-      <change afterPath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bst/dao/SysPowerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bst/dao/impl/SysPwoerDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bst/pojo/Power.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bst/service/SysPowerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bst/service/impl/SysPwoerServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/common/footer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/jsp/syspower.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d22d4b48-9149-4aeb-85f1-9f8e0711c371.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d22d4b48-9149-4aeb-85f1-9f8e0711c371.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bst/lib/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war/BootStrap_demo_war.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/SysResourceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/SysResourceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/dao/SysResourceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/dao/SysResourceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/dao/impl/SysResourceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/dao/impl/SysResourceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/service/SysResourceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/service/SysResourceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/service/impl/SysResourceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/service/impl/SysResourceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/bst/lib/L2Dwidget.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/bst/lib/L2Dwidget.0.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/bst/lib/L2Dwidget.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/bst/lib/L2Dwidget.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/bst/lib/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/mysysrole.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/mysysuser.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource_copy.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/syspower.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/syspower.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/SysResourceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/SysResourceController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/dao/SysResourceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/dao/SysResourceDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/dao/impl/SysResourceDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/dao/impl/SysResourceDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/service/SysResourceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/service/SysResourceService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/service/impl/SysResourceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/service/impl/SysResourceServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/controller/SysResourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/SysResourceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/dao/SysResourceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/SysResourceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/dao/impl/SysResourceDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/impl/SysResourceDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/service/SysResourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/service/SysResourceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/service/impl/SysResourceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/service/impl/SysResourceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/bst/lib/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/common/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/common/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/mysysrole.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/mysysuser.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/dao/SysPowerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/SysPowerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/dao/impl/SysPwoerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/impl/SysPwoerDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/service/SysPowerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/service/SysPowerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/service/impl/SysPwoerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/service/impl/SysPwoerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/pages-login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/sysresource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/sysresource.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/sysresource_copy.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/sysuser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/syspower.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/syspower.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,6 +110,12 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.bst.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Java_BigData\BootStrap_demo\web\bst" />
+    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.bst.pojo" />
       <recent name="" />
@@ -157,12 +126,6 @@
       <recent name="C:\Java_BigData\BootStrap_demo\web\bst\plugins\bootstrap-table" />
       <recent name="C:\Java_BigData\BootStrap_demo\web\bst\plugins" />
       <recent name="C:\Java_BigData\BootStrap_demo\web\bst\plugins\bootstrap-table\extensions\tree-column" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.bst.controller" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Java_BigData\BootStrap_demo\web\bst" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -369,7 +332,8 @@
       <workItem from="1573204968912" duration="222000" />
       <workItem from="1573205538414" duration="2714000" />
       <workItem from="1573208328255" duration="98000" />
-      <workItem from="1573208475479" duration="5385000" />
+      <workItem from="1573208475479" duration="5522000" />
+      <workItem from="1573285764625" duration="7504000" />
     </task>
     <task id="LOCAL-00001" summary="完成SQL查询 添加SysResource 没有完成ajax的调用">
       <created>1572838744810</created>
@@ -417,7 +381,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

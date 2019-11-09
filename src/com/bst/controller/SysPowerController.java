@@ -17,11 +17,20 @@ public class SysPowerController {
     @Autowired
     private SysPowerService sysPowerService;
 
+    //获取所有的角色名称
     @RequestMapping("getpowerrole")
     @ResponseBody
     public List<String> getPowerRole()
     {
         return sysPowerService.getPowerRole();
+    }
+
+    //获取选中角色锁具有的资源
+    @RequestMapping("getpwoerresource")
+    @ResponseBody
+    public List<Resource> getPowerResource(String roleName)
+    {
+       return sysPowerService.getPowerResource(roleName);
     }
 
 
