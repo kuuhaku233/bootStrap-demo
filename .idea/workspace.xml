@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7055fa3-82b6-4889-aac2-66fdbfd12c7d" name="Default" comment="完成SQL查询 添加SysResource 没有完成ajax的调用">
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.0.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/L2Dwidget.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/bst/lib/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bst/view/PowerVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/syspower.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/syspower.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bst/dao/SysPowerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/SysPowerDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bst/dao/impl/SysPwoerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/dao/impl/SysPwoerDaoImpl.java" afterDir="false" />
@@ -23,6 +19,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/bst/service/impl/SysPwoerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/service/impl/SysPwoerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/pages-login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/jsp/syspower.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/syspower.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/sysresource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/sysresource.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +98,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Amazon Redshift" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/bst/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -232,6 +229,7 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="BootStrap_demo:war exploded" />
+          <artifact name="BootStrap_demo:war" />
         </option>
       </method>
     </configuration>
@@ -333,7 +331,9 @@
       <workItem from="1573205538414" duration="2714000" />
       <workItem from="1573208328255" duration="98000" />
       <workItem from="1573208475479" duration="5522000" />
-      <workItem from="1573285764625" duration="7504000" />
+      <workItem from="1573285764625" duration="19588000" />
+      <workItem from="1573455243644" duration="3111000" />
+      <workItem from="1573518976017" duration="15441000" />
     </task>
     <task id="LOCAL-00001" summary="完成SQL查询 添加SysResource 没有完成ajax的调用">
       <created>1572838744810</created>

@@ -554,6 +554,8 @@
             },
             {
                 field: "reopjigouid",
+                visible: false,
+
             },
 
             {

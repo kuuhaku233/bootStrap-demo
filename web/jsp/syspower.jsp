@@ -13,6 +13,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>权限管理页面</title>
+    <style>
+        .bootstrap-table .fixed-table-container .table tbody tr.selected td {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .roletog {
+            background-color: #294f75 !important;
+            color: #ffffff !important;
+            color: inherit;
+        }
+
+        .otherrole {
+            background-color: inherit !important;
+            color: inherit !important;
+        }
+    </style>
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -98,20 +115,12 @@
                             <div class="fixed-sm-200 pull-sm-left fixed-right-border">
 
                                 <div class="pad-btm bord-btm">
-                                    <a class="btn btn-block btn-success">角色列表</a>
+                                    <a class="btn btn-block btn-primary">角色列表</a>
+                                </div>
+                                <div class="list-group bg-trans pad-btm bord-btm" id="rolelist">
+
                                 </div>
 
-                                <ul class="list-group" id="rolelist">
-                                    <%--<li class="list-group-item"><a  href="javascript:void(0)">Porta ac consectetur ac</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Dapibus ac facilisis in</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Cras sit amet nibh libero</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Porta ac consectetur ac</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Vestibulum at eros</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Dapibus ac facilisis in</a></li>
-                                    <li class="list-group-item"><a href="javascript:void(0)">Cras sit amet nibh libero</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Porta ac consectetur ac</a></li>
-                                    <li class="list-group-item"><a  href="javascript:void(0)">Vestibulum at eros</a></li>--%>
-                                </ul>
 
                             </div>
                             <div class="fluid">
@@ -121,30 +130,32 @@
                                 <div id="demo-email-list">
                                     <div class="row">
                                         <div class="pad-btm bord-btm">
-                                            <a class="btn btn-block btn-success">资源列表</a>
+                                            <a class="btn btn-block btn-primary">资源列表</a>
                                         </div>
                                     </div>
                                     <ul id="demo-mail-list" class="mail-list pad-top bord-top">
                                         <div class="mar-btm" id="btntest1">
                                             <button class="btn btn-primary" id="savepower">保存</button>
-                                            <button class="btn btn-danger" >导出excel</button>
+                                            <button class="btn btn-danger">导出excel</button>
                                         </div>
                                         <table id="resource-table" class="table table-striped table-bordered"
                                                cellspacing="0"
                                                width="100%">
                                             <thead>
                                             <tr>
-                                                <th><input type="checkbox" checked class="check" id="checkall"></th>
+                                                <th></th>
                                                 <th>reid</th>
                                                 <th>资源名称</th>
                                                 <th>资源链接</th>
                                                 <th>资源图标</th>
+                                                <th>状态</th>
                                             </tr>
                                             </thead>
 
                                         </table>
                                     </ul>
                                 </div>
+                                <%-- 页面右侧部分 资源列表 结束--%>
                             </div>
                         </div>
                     </div>
@@ -172,6 +183,7 @@
     <button class="scroll-top btn">
         <i class="pci-chevron chevron-up"></i>
     </button>
+    <%-- 换肤按钮 --%>
 
 
 </div>
@@ -216,7 +228,7 @@
             "scale": 0.8
         }, "display": {
             "position": "left", "width": 200, "height": 270,
-            "hOffset": 40, "vOffset": 20,
+            "hOffset": 30, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
         "react": {opacity: 0.8},
@@ -236,192 +248,164 @@
         }
     });
 
-</script >
-    <%-- Live2D动画的插件--%>
+</script>
+<%-- Live2D动画的插件--%>
 <script>
+    var $table = $('#resource-table')
+    var rid='';
+    //构建bootstrapTable
     $(function () {
-        $table = $('#resource-table')
-        //构建bootstrapTable
-        $table.bootstrapTable('destroy').bootstrapTable({
-            destroy: true,
-            toolbar: "#btntest1",
-            idField: "reid",//设置列为选中列
-            url: "../system/getresource",
-            locale: 'zh-CN',
-            pagination: true,//分页
-            pageNumber: 1,//默认显示第1也
-            pageSize: 10,//每页显示的数量
-            pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
-            search: true,//搜索
-            sidePagination: 'server',//设置服务器端分页*********************
-            showRefresh: true, //显示刷新按钮
-            showColumns: true,//显示列刷选
-            silent: true,
 
-            striped: true,
-            columns: [
-                {
-                    checkbox: true,
+        function ftb(rid){
+            var reids=[];
+            $table.bootstrapTable('destroy').bootstrapTable({
+                destroy: true,
+                //toolbar: "#btntest1",
+                idField: "reid",//设置列为选中列
+                url: "../system/getpwoerresource",
+                locale: 'zh-CN',
+                queryParams:"rid="+rid,
+                pagination: true,//分页
+                pageNumber: 1,//默认显示第1也
+                pageSize: 10,//每页显示的数量
+                pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
+                // search: true,//搜索
+                //sidePagination: 'server',//设置服务器端分页*********************
+                //showRefresh: true, //显示刷新按钮
+                //showColumns: true,//显示列刷选
+                silent: true,
 
-                },
-                {
-                    field: "reid",
-                    visible: false,
-                },
-                {
-                    field: "resourcename",
-                },
-                {
-                    field: "relink",
-                },
-                {
-                    field: "rebianhao",
-                    formatter: function (val) {
-                        return '<span class="' + val + '"></span>'
+                striped: true,
+                columns: [
+                    {
+                        checkbox: true,
+
                     },
-                    sortable: true,
+                    {
+                        field: "reid",
+                        visible: false,
+                    },
+                    {
+                        field: "resourcename",
+                    },
+                    {
+                        field: "relink",
+                    },
+                    {
+                        field: "rebianhao",
+                        formatter: function (val) {
+                            return '<span class="' + val + '"></span>'
+                        },
+                        sortable: true,
+
+                    },
+                    {
+                        field: "powerreid",
+                        formatter: function (val) {
+                            if(val!=null) {
+                                reids.push(val);
+                                return '<span class="label label-info">拥有权限</span>'
+                            }
+                            else{
+                                return '<span class="label label-danger">未拥有权限</span>'
+                            }
+                        },
+
+                    },
+
+                ],
+                treeShowField: 'resourcename',
+                parentIdField: 'reopjigouid',
+
+                onResetView: function (data) {
+
+                    $table.treegrid({
+                        initialState: 'expanded',// 所有节点都折叠
+                        // initialState: '',// 所有节点都展开，默认展开
+                        treeColumn: 1,
+                        expanderExpandedClass: 'glyphicon glyphicon-triangle-bottom',  //图标样式
+                        expanderCollapsedClass: 'glyphicon glyphicon-triangle-right',
+                        onChange: function () {
+                            $table.bootstrapTable('resetWidth');
+                        }
+                    });
+
+                    //只展开树形的第一级节点
+                    $table.treegrid('getRootNodes').treegrid('expand');
 
                 },
+                onLoadSuccess:function () {
+                    $table.bootstrapTable('checkBy',{field:'reid',values:reids});
+                }
+            });
+        }
+        ftb(1);
 
-            ],
-            treeShowField: 'resourcename',
-            parentIdField: 'reopjigouid',
-
-            onResetView: function (data) {
-
-                $table.treegrid({
-                    initialState: 'expanded',// 所有节点都折叠
-                    // initialState: '',// 所有节点都展开，默认展开
-                    treeColumn: 1,
-                    expanderExpandedClass: 'glyphicon glyphicon-triangle-bottom',  //图标样式
-                    expanderCollapsedClass: 'glyphicon glyphicon-triangle-right',
-                    onChange: function () {
-                        $table.bootstrapTable('resetWidth');
+        //查询出 所有的角色信息
+        $(function () {
+            $.ajax({
+                url: '../system/findAll',
+                success: function (data) {
+                    if (data != null) {
+                        for (var i = 0; i < data.length; i++)
+                            $("#rolelist").append(
+                                ' <a href="javascript:void(0)" class="list-group-item" id="' + data[i].rid + '">' + data[i].rname + ' </a>'
+                            )
                     }
-                });
+                }
+            });
 
-                //只展开树形的第一级节点
-                $table.treegrid('getRootNodes').treegrid('expand');
+            //点击角色名称查出角色对应的权限信息
+            $("#rolelist").on('click', 'a', function () {
+                $(this).addClass("roletog");
+                $(this).siblings().removeClass("roletog");
+                 rid=$(this).attr("id");
+                ftb(rid);
+            })
+            //
 
-            }
+            //权限修改
+            $("#savepower").on('click', function () {
+                var selects=$table.bootstrapTable('getSelections');
+                var reids=[];
+
+                for(var i=0;i<selects.length;i++)
+                {
+                    reids.push(selects[i].reid);
+                }
+                console.log("rid:"+rid)
+                console.log("reids:"+reids)
+                $.ajax({
+                    url:'../system/updaterolepower',
+                    data:{
+                        reids:reids.toString(),
+                        rid:rid
+                    },
+                    success:function (data) {
+                        if(data)
+                        {
+                            $.niftyNoty({
+                                type: 'info',
+                                icon : 'pli-exclamation icon-2x',
+                                message : '修改权限成功',
+                                container : 'floating',
+                                timer : 3000
+                            });
+
+                        }
+                    }
+                })
+                ftb(rid);
+            })
+
+
         });
+
+
 
     })
 
-    $(function () {
-        //查询出 所有的角色信息
-        $.ajax({
-            url: '../system/getpowerrole',
-            success: function (data) {
-                if (data != null) {
-                    for (var i = 0; i < data.length; i++)
-                        $("#rolelist").append(
-                            '<a  href="javascript:void(0)"><li class="list-group-item" value="' + data[i] + '">' + data[i] + '</li></a>'
-                        )
-                }
-            }
-        });
-        $("#rolelist").on('click','li',function () {
-              roleName = $(this).text();
-            $.ajax({
-                url:'../system/getpwoerresource',
-                data:'roleName='+roleName,
-                success:function (data) {
-                    if(data!=null) {
-                        $table.bootstrapTable('destroy').bootstrapTable({
-                            destroy: true,
-                            toolbar: "#btntest1",
-                            idField: "reid",//设置列为选中列
-                            data: data,
-                            locale: 'zh-CN',
-                            pagination: true,//分页
-                            pageNumber: 1,//默认显示第1也
-                            pageSize: 10,//每页显示的数量
-                            pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
-                            search: true,//搜索
-                            sidePagination: 'server',//设置服务器端分页*********************
-                            showRefresh: true, //显示刷新按钮
-                            showColumns: true,//显示列刷选
-                            silent: true,
 
-                            striped: true,
-                            columns: [
-                                {
-                                    field: null,
-                                    formatter: function (val) {
-                                        return '<input  class="check" type="checkbox">'
-                                    }
-
-                                },
-                                {
-                                    field: "reid",
-                                    visible: false,
-                                },
-                                {
-                                    field: "resourcename",
-                                },
-                                {
-                                    field: "relink",
-                                },
-                                {
-                                    field: "rebianhao",
-                                    formatter: function (val) {
-                                        return '<span class="' + val + '"></span>'
-                                    },
-                                    sortable: true,
-
-                                },
-
-                            ],
-                            treeShowField: 'resourcename',
-                            parentIdField: 'reopjigouid',
-
-                            onResetView: function (data) {
-
-                                $table.treegrid({
-                                    initialState: 'expanded',// 所有节点都折叠
-                                    // initialState: '',// 所有节点都展开，默认展开
-                                    treeColumn: 1,
-                                    expanderExpandedClass: 'glyphicon glyphicon-triangle-bottom',  //图标样式
-                                    expanderCollapsedClass: 'glyphicon glyphicon-triangle-right',
-                                    onChange: function () {
-                                        $table.bootstrapTable('resetWidth');
-                                    }
-                                });
-
-                                //只展开树形的第一级节点
-                                $table.treegrid('getRootNodes').treegrid('expand');
-
-                            }
-                        });
-                        if ($("#checkall").checked == true)
-                        {
-                            $(".check").attr("checked","true");
-                        }
-
-
-                        // $table.bootstrapTable('checkAll');
-                    }
-
-                }
-            })
-
-        })
-        //
-
-        //权限修改
-        $("#savepower").on('click',function () {
-            if(roleName!=null)
-            {
-                alert(roleName);
-            }
-
-        })
-
-
-
-
-    });
 
 </script>
 
