@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class LoginDaoImpl implements LoginDao {
     @Autowired(required = true)
@@ -18,15 +20,15 @@ public class LoginDaoImpl implements LoginDao {
     }
 
     @Override
-    public boolean getLogin(SysUserEntity su) {
-        String hql="select count(*) from SysUserEntity as su where su.username=:username and su.password=:password";
-        Query query =getSession().createQuery(hql);
+    public SysUserEntity getLogin(SysUserEntity su) {
+        String sql="select * from users as su where su.username=:username and su.password=:password";
+        Query query =getSession().createSQLQuery(sql).addEntity(SysUserEntity.class);
         query.setString("username",su.getUsername());
         query.setString("password",su.getPassword());
-        Number num= (Number) query.uniqueResult();
-        if (num.intValue()>0){
-            return true;
+        List<SysUserEntity> list = query.list();
+        if (list.size()>0){
+            return list.get(0);
         }
-        return false;
+        return null;
     }
 }

@@ -4,5 +4,5 @@ import com.bst.pojo.SysUserEntity;
 
 public interface LoginDao {
 
-    public boolean getLogin(SysUserEntity su);
+    public SysUserEntity getLogin(SysUserEntity su);
 }

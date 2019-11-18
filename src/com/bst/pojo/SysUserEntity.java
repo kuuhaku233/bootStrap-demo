@@ -178,6 +178,26 @@ public class SysUserEntity {
     public SysUserEntity() {
     }
 
+    @Override
+    public String toString() {
+        return "SysUserEntity{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", register_address='" + register_address + '\'' +
+                ", register_time=" + register_time +
+                ", login_time=" + login_time +
+                ", last_login_time=" + last_login_time +
+                ", login_count='" + login_count + '\'' +
+                ", signed='" + signed + '\'' +
+                ", roleid=" + roleid +
+                ", organizeid=" + organizeid +
+                ", opid=" + opid +
+                '}';
+    }
+
     public SysUserEntity(Integer uid, String username, String password, String email, String phone, String register_address, Timestamp register_time, Timestamp login_time, Timestamp last_login_time, String login_count, String signed, Integer roleid, Integer organizeid, Integer opid) {
         this.uid = uid;
         this.username = username;

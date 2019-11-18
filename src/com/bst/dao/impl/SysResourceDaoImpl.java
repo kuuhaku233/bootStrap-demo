@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 @Repository
@@ -83,5 +84,11 @@ public class SysResourceDaoImpl implements SysResourceDao{
         }
         getSession().saveOrUpdate(resource);
         return resource;
+    }
+
+    @Override
+    public List<Resource> getRoleLinkByRoleId(Integer roleid) {
+        String sql="select  DISTINCT re.* from resource re left join power p on p.rid=re.reid and p.rid="+roleid;
+       return getSession().createSQLQuery(sql).addEntity(Resource.class).list();
     }
 }

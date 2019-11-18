@@ -42,4 +42,9 @@ public class SysResourceServiceImpl implements SysResourceService {
     public Resource saveResource(Resource resource) {
         return sysResourceDao.saveResource(resource);
     }
+
+    @Override
+    public List<Resource> getRoleLinkByRoleId(Integer roleid) {
+        return sysResourceDao.getRoleLinkByRoleId(roleid);
+    }
 }

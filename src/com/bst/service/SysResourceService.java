@@ -22,4 +22,7 @@ public interface SysResourceService {
 
     //新增资源记录
     public Resource saveResource(Resource resource);
+
+    //根据用户id获取 资源
+    List<Resource> getRoleLinkByRoleId(Integer roleid);
 }

@@ -1,6 +1,5 @@
 package com.bst.controller;
 
-import com.bst.dao.SysResourceDao;
 import com.bst.pojo.Resource;
 import com.bst.service.SysResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ import java.util.List;
 public class SysResourceController {
     @Autowired
     private SysResourceService sysResourceService;
-    @Autowired
-    private SysResourceDao sysResourceDao;
 
     //查询系统资源信息
     @RequestMapping("getresource")
@@ -52,6 +49,13 @@ public class SysResourceController {
     public Resource saveResource(Resource resource)
     {
         return sysResourceService.saveResource(resource);
+    }
+
+    //根据用户id获取 资源
+    @RequestMapping("getrolelink")
+    @ResponseBody
+    List<Resource> getRoleLinkByRoleId(Integer roleid) {
+        return sysResourceService.getRoleLinkByRoleId(roleid);
     }
 
 }

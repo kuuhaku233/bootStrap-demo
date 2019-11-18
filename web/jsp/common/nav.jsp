@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.bst.pojo.SysUserEntity" %>
+<script src="/bst/js/jquery.min.js"></script>
 <nav id="mainnav-container">
     <div id="mainnav">
         <div id="mainnav-menu-wrap">
@@ -88,12 +90,10 @@
                             </a>
 
                             <!--Submenu-->
-                            <ul class="collapse in" id="liknlist">
-                                <li class="active-link"><a href="../jsp/sysuser.jsp">用户管理</a></li>
-                                <li><a href="../jsp/sysrole.jsp">角色管理</a></li>
+                            <ul class="collapse in" id="liklist">
+                                <%--<li><a href="../jsp/sysrole.jsp">角色管理</a></li>
                                 <li><a href="../jsp/sysresource.jsp">资源管理</a></li>
-                                <li><a href="../jsp/syspower.jsp">权限管理</a></li>
-
+                                <li><a href="../jsp/syspower.jsp">权限管理</a></li>--%>
                             </ul>
                         </li>
 
@@ -521,3 +521,26 @@
 
     </div>
 </nav>
+<%
+    SysUserEntity user= (SysUserEntity) session.getAttribute("userInfo");
+    Integer roleid=user.getRoleid();
+
+%>
+<script>
+    $(function () {
+        $.ajax({
+            url:"/system/getrolelink",
+            data:"roleid="+<%=roleid%>,
+            success:function (data) {
+                if(data!=null){
+                    console.log(data)
+                    for (var i = 0; i < data.length; i++)
+                        $("#liklist").append(
+                            ' <a href="'+data[i].relink+'.jsp" >' + data[i].resourcename + ' </a>'
+                        )
+                }
+
+            }
+        })
+    })
+</script>

@@ -13,7 +13,7 @@ public class LoginServiceImpl implements LoginService {
     private LoginDao ld;
 
     @Override
-    public boolean getLogin(SysUserEntity su) {
+    public SysUserEntity getLogin(SysUserEntity su) {
         return ld.getLogin(su);
     }
 }
