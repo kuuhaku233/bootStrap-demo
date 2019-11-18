@@ -39,6 +39,9 @@
     <!--Bootstrap Validator 表单验证-->
     <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
 
+    <%-- 引入bootstrap select的css --%>
+    <link href="plugins/bootstrap-select/bootstrap-select.css" rel="stylesheet">
+
 
 </head>
 

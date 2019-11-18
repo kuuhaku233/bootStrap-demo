@@ -24,11 +24,6 @@
             color: #ffffff !important;
             color: inherit;
         }
-
-        .otherrole {
-            background-color: inherit !important;
-            color: inherit !important;
-        }
     </style>
 
     <!--Bootstrap Stylesheet [ REQUIRED ]-->
@@ -265,10 +260,10 @@
                 url: "../system/getpwoerresource",
                 locale: 'zh-CN',
                 queryParams:"rid="+rid,
-                pagination: true,//分页
-                pageNumber: 1,//默认显示第1也
+                // pagination: true,//分页
+               /* pageNumber: 1,//默认显示第1也
                 pageSize: 10,//每页显示的数量
-                pageList: [5, 10, 20, 50, 100],//设置每页显示的数量
+                pageList: [5, 10, 20, 50, 100],//设置每页显示的数量*/
                 // search: true,//搜索
                 //sidePagination: 'server',//设置服务器端分页*********************
                 //showRefresh: true, //显示刷新按钮
@@ -393,9 +388,10 @@
                             });
 
                         }
+                        ftb(rid);
                     }
                 })
-                ftb(rid);
+
             })
 
 

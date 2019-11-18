@@ -60,12 +60,12 @@
 		                <h1 class="h3">用户登录</h1>
 		                <p>请输入登录信息</p>
 		            </div>
-		            <form action="../user/login" method="post">
+		            <form action="../system/login" method="post">
 		                <div class="form-group">
-		                    <input type="text" class="form-control" placeholder="请输入用户名" autofocus name="userName">
+		                    <input type="text" class="form-control" placeholder="请输入用户名" autofocus name="username">
 		                </div>
 		                <div class="form-group">
-		                    <input type="password" class="form-control" placeholder="请输入密码" name="userPwd">
+		                    <input type="password" class="form-control" placeholder="请输入密码" name="password">
 		                </div>
 		                <div class="checkbox pad-btm text-left">
 		                    <input id="demo-form-checkbox" class="magic-checkbox" type="checkbox">

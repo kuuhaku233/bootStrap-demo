@@ -39,6 +39,8 @@
 
     <!--Bootstrap Validator 表单验证-->
     <link href="plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+    <%-- 引入bootstrap select的css --%>
+    <link href="plugins/bootstrap-select/bootstrap-select.css" rel="stylesheet">
 
 
 
@@ -91,7 +93,7 @@
 
 					    <div class="panel-body">
                             <div class="mar-btm">
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#useradd">新增</button>
+                                <button class="btn btn-primary"  id="add">新增</button>
                             </div>
 					        <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
 					            <thead>
@@ -288,6 +290,14 @@
                                     <input type="text" placeholder="phone"  class="form-control" name="phone">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" >角色：</label>
+                                <div class="col-sm-9">
+                                    <select class="selectpicker" name="roleid" class="form-control" id="select2" >
+
+                                    </select>
+                                </div>
+                            </div>
 
 
                         </div>
@@ -312,6 +322,7 @@
     <!--Demo script [ DEMONSTRATION ]-->
     <script src="js/demo/nifty-demo.min.js"></script>
 
+
     
     <!--DataTables [ OPTIONAL ]-->
     <script src="plugins/datatables/media/js/jquery.dataTables.js"></script>
@@ -322,6 +333,8 @@
 
     <!--Bootstrap Validator 表单验证-->
     <script src="plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+    <%-- 引入bootstrap select的插件--%>
+    <script src="plugins/bootstrap-select/bootstrap-select.js"></script>
     <%-- Live2D 看板动画 --%>
     <script src="./lib/L2Dwidget.min.js"></script>
     <script type="text/javascript">
@@ -664,6 +677,30 @@
                         }
                     }
                 })
+            })
+
+
+            //新增弹出框打开之前
+            $("#add").on("click",function () {
+                $("#select2").empty();
+                //新增数据前 查询出角色信息
+                $.ajax({
+                    url:"../system/findAll",
+                    success:function (data) {
+                        console.log(data);
+                        for(var i=0;i<data.length;i++)
+                        {
+                            $("#select2").append(
+                                '<option value="'+data[i].rid+'">'+data[i].rname+'</option>'
+                            )
+                        }
+                        $('#select2').selectpicker('refresh');
+                        $('#select2').selectpicker('render');
+                    }
+
+                })
+                $("#useradd").modal("show");
+
             })
 
             //新增用户

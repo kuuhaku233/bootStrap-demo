@@ -88,7 +88,7 @@
                             </a>
 
                             <!--Submenu-->
-                            <ul class="collapse in">
+                            <ul class="collapse in" id="liknlist">
                                 <li class="active-link"><a href="../jsp/sysuser.jsp">用户管理</a></li>
                                 <li><a href="../jsp/sysrole.jsp">角色管理</a></li>
                                 <li><a href="../jsp/sysresource.jsp">资源管理</a></li>

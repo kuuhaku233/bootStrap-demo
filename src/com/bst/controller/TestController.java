@@ -20,12 +20,13 @@ import java.util.Map;
 public class TestController {
     @Autowired
     private UserService userService;
-    @RequestMapping("/login")
-    public String login(User user)
+    @RequestMapping("login")
+    public String login(User user,HttpSession session)
     {
         boolean b = userService.getLogin(user);
         if(b==true)
         {
+            session.setAttribute("userInfo", user);
             return "index";
         }
         return "pages-login";
