@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="com.bst.pojo.SysUserEntity" %>
+<%@ page import="javax.servlet.jsp.tagext.TryCatchFinally" %>
 <script src="/bst/js/jquery.min.js"></script>
 <nav id="mainnav-container">
     <div id="mainnav">
@@ -522,18 +523,24 @@
     </div>
 </nav>
 <%
-    SysUserEntity user= (SysUserEntity) session.getAttribute("userInfo");
-    Integer roleid=user.getRoleid();
+    Integer roleid=null;
+    try {
+        SysUserEntity user = (SysUserEntity) session.getAttribute("userInfo");
+         roleid = user.getRoleid();
+    }
+    catch (Exception e){
+        e.printStackTrace();
+    }
 
 %>
 <script>
     $(function () {
+        $("#liklist li").remove();
         $.ajax({
             url:"/system/getrolelink",
             data:"roleid="+<%=roleid%>,
             success:function (data) {
                 if(data!=null){
-                    console.log(data)
                     for (var i = 0; i < data.length; i++)
                         $("#liklist").append(
                             ' <a href="'+data[i].relink+'.jsp" >' + data[i].resourcename + ' </a>'

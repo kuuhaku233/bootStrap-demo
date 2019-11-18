@@ -88,7 +88,15 @@ public class SysResourceDaoImpl implements SysResourceDao{
 
     @Override
     public List<Resource> getRoleLinkByRoleId(Integer roleid) {
-        String sql="select  DISTINCT re.* from resource re left join power p on p.rid=re.reid and p.rid="+roleid;
-       return getSession().createSQLQuery(sql).addEntity(Resource.class).list();
+        String sql="SELECT\n" +
+                "\tre.* \n" +
+                "FROM\n" +
+                "\tresource re \n" +
+                "WHERE\n" +
+                "\tre.reid IN ( SELECT p.reid FROM power p WHERE p.rid =:roleid )";
+        Query query = getSession().createSQLQuery(sql).addEntity(Resource.class);
+        query.setInteger("roleid", roleid);
+        return query.list();
+
     }
 }
