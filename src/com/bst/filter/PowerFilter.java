@@ -1,47 +1,60 @@
 package com.bst.filter;
 
 import com.bst.pojo.SysUserEntity;
-import com.bst.pojo.User;
-import org.springframework.util.StringUtils;
-import org.springframework.web.filter.OncePerRequestFilter;
-
-import javax.servlet.*;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
-public class PowerFilter extends OncePerRequestFilter {
+public class PowerFilter implements HandlerInterceptor {
+
+    /**
+     *
+     * @param httpServletRequest
+     * @param httpServletResponse
+     * @param o
+     * @return   返回true就不再执行    false将拦截请求
+     * @throws Exception
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
+
+            //不过滤的uri
+            String[] notFilter = new String[]{"/system/login","pages-login.jsp","index.jsp"};
+            //请求的uri
+            String uri = httpServletRequest.getRequestURI();
+            System.out.println(uri);
+            boolean doFilter = false;
+            for(String s : notFilter){
+                if(uri.indexOf(s) != -1){
+                    //uri中包含不过滤uri，则不进行过滤
+                    doFilter = true;
+                    break;
+                }
+            }
+            if(!doFilter){
+                //获取session中的用户信息
+                HttpSession session = httpServletRequest.getSession();
+                SysUserEntity user = (SysUserEntity) session.getAttribute("userInfo");
+                if(user!=null){
+                    doFilter= true;
+                }
+                else {
+                    httpServletRequest.getRequestDispatcher("/jsp/pages-login.jsp").forward(httpServletRequest, httpServletResponse);
+                }
+            }
+        return doFilter;
+        }
+
 
     @Override
-    protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
-        //不过滤的uri
-        String[] notFilter = new String[]{"/system/login","pages-login.jsp","index.jsp"};
-        //请求的uri
-        String uri = httpServletRequest.getRequestURI();
-        boolean doFilter = true;
-        for(String s : notFilter){
-            if(uri.indexOf(s) != -1){
-                //uri中包含不过滤uri，则不进行过滤
-                doFilter = false;
-                break;
-            }
-        }
-        if(doFilter){
-            //获取session中的用户信息
-            HttpSession session = httpServletRequest.getSession();
-            SysUserEntity user = (SysUserEntity) session.getAttribute("userInfo");
-            System.out.println(user);
-            if(user!=null){
-                filterChain.doFilter(httpServletRequest, httpServletResponse);
-                return;
-            }
-            else {
-                httpServletResponse.sendRedirect("/system/login");
-            }
-        }
-        filterChain.doFilter(httpServletRequest, httpServletResponse);
+    public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
+
     }
 
+    @Override
+    public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
 
+    }
 }

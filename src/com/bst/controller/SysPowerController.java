@@ -37,11 +37,11 @@ public class SysPowerController {
      */
     @RequestMapping("updaterolepower")
     @ResponseBody
-    public Boolean updateRolePower(@RequestParam(value = "rid", required=false) Integer rid,
+    public Boolean updateRolePower(@RequestParam(value = "rid", required=false,defaultValue = "1") Integer rid,
                                     HttpServletRequest request)
 
     {
-        String rid1 = request.getParameter("rid");
+//        String rid1 = request.getParameter("rid");
         String reids1 = request.getParameter("reids");
         String[] arr = reids1.split(",");
         return sysPowerService.updateRolePower(rid, arr);

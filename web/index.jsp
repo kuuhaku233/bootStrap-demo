@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-<%--<jsp:forward page="jsp/pages-login.jsp"></jsp:forward>--%>
+<jsp:forward page="jsp/pages-login.jsp"></jsp:forward>
 </body>
 </html>

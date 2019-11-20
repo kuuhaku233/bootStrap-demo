@@ -45,13 +45,13 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <!-- spring自定义过滤器-->
-    <filter>
+    <!-- servlet 过滤器-->
+    <!--<filter>
         <filter-name>PowerFilter</filter-name>
         <filter-class>com.bst.filter.PowerFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>PowerFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 </web-app>
