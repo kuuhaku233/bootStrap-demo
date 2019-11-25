@@ -7,23 +7,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7055fa3-82b6-4889-aac2-66fdbfd12c7d" name="Default" comment="完成SQL查询 添加SysResource 没有完成ajax的调用">
+      <change afterPath="$PROJECT_DIR$/src/com/bst/asspectj/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bst/controller/LinkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/nopower.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/controller/TestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/filter/PowerFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/com/bst/filter/PowerFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/classes/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/aside.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/footer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/header.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/common/nav.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/map.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/pages-login.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/syspower.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysresource.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysrole.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BootStrap_demo_war_exploded/jsp/sysuser.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/controller/TestController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/filter/PowerFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/com/bst/filter/PowerFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BootStrap_demo/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BootStrap_demo/springmvc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bst/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/SysPowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bst/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/controller/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bst/filter/PowerFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bst/filter/PowerFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/common/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/common/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/jsp/pages-login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/common/aside.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/common/aside.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/common/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/common/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/common/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/common/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/common/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/common/nav.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/map.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/map.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/pages-login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/syspower.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/syspower.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/sysresource.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/sysresource.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/sysrole.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/sysrole.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/jsp/sysuser.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/jsp/sysuser.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,8 +111,8 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1TKUVGGm6zMulfPVrOipfGzpGgI" />
@@ -102,12 +125,12 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Amazon Redshift" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/jsp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.29061785" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -116,16 +139,17 @@
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Java_BigData\BootStrap_demo\web\jsp" />
       <recent name="C:\Java_BigData\BootStrap_demo\src\com\bst\dao\impl" />
       <recent name="C:\Java_BigData\BootStrap_demo\src\com\bst\dao" />
       <recent name="C:\Java_BigData\BootStrap_demo\src\com\bst\service\impl" />
       <recent name="C:\Java_BigData\BootStrap_demo\src\com\bst\service" />
-      <recent name="C:\Java_BigData\BootStrap_demo\src\com\bst\controller" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.bst.controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Java_BigData\BootStrap_demo\web\WEB-INF" />
       <recent name="C:\Java_BigData\BootStrap_demo\web\bst" />
     </key>
   </component>
@@ -343,7 +367,11 @@
       <workItem from="1573804671969" duration="353000" />
       <workItem from="1574037999534" duration="22666000" />
       <workItem from="1574123929706" duration="13105000" />
-      <workItem from="1574211727849" duration="10786000" />
+      <workItem from="1574211727849" duration="11070000" />
+      <workItem from="1574240582389" duration="15629000" />
+      <workItem from="1574384375983" duration="921000" />
+      <workItem from="1574642151116" duration="6279000" />
+      <workItem from="1574665519775" duration="2931000" />
     </task>
     <task id="LOCAL-00001" summary="完成SQL查询 添加SysResource 没有完成ajax的调用">
       <created>1572838744810</created>
@@ -403,85 +431,19 @@
     <MESSAGE value="完成SQL查询 添加SysResource 没有完成ajax的调用" />
     <option name="LAST_COMMIT_MESSAGE" value="完成SQL查询 添加SysResource 没有完成ajax的调用" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bst/filter/PowerFilter.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>BootStrap_demo:war exploded</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Detection</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Hibernate|BootStrap_demo</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>lib</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

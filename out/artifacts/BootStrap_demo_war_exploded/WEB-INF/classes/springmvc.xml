@@ -40,7 +40,7 @@
             <mvc:exclude-mapping path="/bst/**/*.ttf"/>
             <mvc:exclude-mapping path="/bst/**/*.woff"/>
             <mvc:exclude-mapping path="/bst/**/*.map"/>
-            <mvc:exclude-mapping path="/bst/**/*.ico"/>
+            <mvc:exclude-mapping path="/*.ico"/>
             <bean class="com.bst.filter.PowerFilter"/>
         </mvc:interceptor>
 
@@ -61,7 +61,7 @@
 
     <!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在jsp/目录下，查找XXX.jsp文件 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/jsp/"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
 

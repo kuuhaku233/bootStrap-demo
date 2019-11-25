@@ -93,8 +93,8 @@
                 <!--Breadcrumb-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <ol class="breadcrumb">
-                    <li><a href="../jsp/index.jsp"><i class="demo-pli-home"></i></a></li>
-                    <li><a href="../jsp/index.jsp">系统管理</a></li>
+                    <li><a href="index.jsp"><i class="demo-pli-home"></i></a></li>
+                    <li><a href="index.jsp">系统管理</a></li>
                     <li class="active">权限管理</li>
                 </ol>
             </div>
@@ -259,7 +259,7 @@
                 idField: "reid",//设置列为选中列
                 url: "../system/getpwoerresource",
                 locale: 'zh-CN',
-                queryParams:"rid="+rid,
+                queryParams:"rid="+rid, //bootstrapTable ajax传递参数
                 // pagination: true,//分页
                /* pageNumber: 1,//默认显示第1也
                 pageSize: 10,//每页显示的数量
@@ -342,6 +342,9 @@
                 url: '../system/findAll',
                 success: function (data) {
                     if (data != null) {
+                        if(data=='loseSession'){
+                            window.location.href="login.jsp"
+                        }
                         for (var i = 0; i < data.length; i++)
                             $("#rolelist").append(
                                 ' <a href="javascript:void(0)" class="list-group-item" id="' + data[i].rid + '">' + data[i].rname + ' </a>'

@@ -85,8 +85,8 @@
                 <!--Breadcrumb-->
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
                 <ol class="breadcrumb">
-                    <li><a href="../jsp/index.jsp"><i class="demo-pli-home"></i></a></li>
-                    <li><a href="../jsp/index.jsp">系统管理</a></li>
+                    <li><a href="index.jsp"><i class="demo-pli-home"></i></a></li>
+                    <li><a href="index.jsp">系统管理</a></li>
                     <li class="active">资源管理</li>
                 </ol>
                 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->

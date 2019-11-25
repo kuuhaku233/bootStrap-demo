@@ -4,13 +4,11 @@ import com.bst.pojo.Resource;
 import com.bst.pojo.SysUserEntity;
 import com.bst.service.LoginService;
 import com.bst.service.SysResourceService;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -36,7 +34,8 @@ public class LoginController {
             session.setAttribute("sysresources",resources);
             return "index";
         }
-        return "pages-login";
+        return "login";
     }
+
 
 }

@@ -30,7 +30,7 @@
                             <a href="../jsp/index.jsp" class="list-group-item">
                                 <i class="demo-pli-information icon-lg icon-fw"></i> 帮助
                             </a>
-                            <a href="../jsp/index.jsp" class="list-group-item">
+                            <a href="/link/logout" class="list-group-item">
                                 <i class="demo-pli-unlock icon-lg icon-fw"></i> 注销
                             </a>
                         </div>
@@ -530,6 +530,7 @@
         var data=JSON.parse(sessionStorage.getItem("sysresources"));
         console.log(data);
         var reids=[]
+        /*  第一次循环查询出所有的一级资源,添加为父模块的资源 并保存父级资源的reid*/
         for (var i = 0; i < data.length; i++) {
             if (data[i].reopjigouid == 0) {
                 reids.push(data[i].reid)
@@ -549,16 +550,16 @@
             }
         }
             console.log(reids)
+        /*  外层循环遍历所有的父级资源,内层再次遍历资源记录  查询出二级资源在哪个父级资源下  添加资源信息 */
                 for (var k=0;k<reids.length;k++)
                 {
                     for (var j = 0; j < data.length; j++)
                     {
                         if(data[j].reopjigouid==reids[k])
                         {
-                            console.log(reids[k])
                             $( '#'+reids[k]+'').append(
                                 '<ul class="collapse in">\n' +
-                                '<li><a href='+data[j].relink+".jsp" +'>'+data[j].resourcename+'</a></li>\n' +
+                                '<li><a href='+data[j].relink+'>'+data[j].resourcename+'</a></li>\n' +
                                 '</ul>\n' +
                                 '\n' +
                                 '</li>'
