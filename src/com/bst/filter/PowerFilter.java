@@ -44,27 +44,15 @@ public class PowerFilter implements HandlerInterceptor {
             SysUserEntity su=(SysUserEntity)session.getAttribute("userInfo");
             //根据session中的值进行判断
             if(su!=null){
-                /*//判断是否有权限访问该资源
-                List<SysResourceEntity> sres=(List<SysResourceEntity>)session.getAttribute("RESOURCES_FILTER");
-                boolean b=true;
-                for(SysResourceEntity sre:sres){
-                    if(uri.indexOf(sre.getRelink())!=-1){
-                        b=false;
-                        break;
-                    }
-                }
-                //没有访问权限的话跳转到没有权限的提示页面
-                if(b){
-                    response.sendRedirect("/"+httpServletRequest.getContextPath()+"/link/tonopower");
-                }*/
+
 
                 //判断是否是手动输入的uri或者是粘贴的uri
-                String conString = httpServletRequest.getHeader("REFERER");
+                /*String conString = httpServletRequest.getHeader("REFERER");
                 if("".equals(conString) || null==conString){
                     httpServletResponse.sendRedirect(httpServletRequest.getContextPath()+"/link/tonopower");
                     doFilter=false;
                     return doFilter;
-                }
+                }*/
 
 
                 doFilter=true;

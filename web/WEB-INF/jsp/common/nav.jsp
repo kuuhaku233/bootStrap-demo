@@ -528,7 +528,6 @@
         var resource =${sessionScope.sysresources};
         sessionStorage.setItem("sysresources",JSON.stringify(resource));
         var data=JSON.parse(sessionStorage.getItem("sysresources"));
-        console.log(data);
         var reids=[]
         /*  第一次循环查询出所有的一级资源,添加为父模块的资源 并保存父级资源的reid*/
         for (var i = 0; i < data.length; i++) {
@@ -549,7 +548,6 @@
                 )
             }
         }
-            console.log(reids)
         /*  外层循环遍历所有的父级资源,内层再次遍历资源记录  查询出二级资源在哪个父级资源下  添加资源信息 */
                 for (var k=0;k<reids.length;k++)
                 {

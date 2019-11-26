@@ -41,6 +41,7 @@
             <mvc:exclude-mapping path="/bst/**/*.woff"/>
             <mvc:exclude-mapping path="/bst/**/*.map"/>
             <mvc:exclude-mapping path="/*.ico"/>
+            <mvc:exclude-mapping path="/bst/js/echarts.js"/>
             <bean class="com.bst.filter.PowerFilter"/>
         </mvc:interceptor>
 
