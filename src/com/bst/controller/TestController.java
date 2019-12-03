@@ -18,7 +18,7 @@ public class TestController {
     @Autowired
     private UserService userService;
     @RequestMapping("login")
-    public String login(User user,HttpSession session)
+    public String login(User user, HttpSession session)
     {
         boolean b = userService.getLogin(user);
         if(b==true)

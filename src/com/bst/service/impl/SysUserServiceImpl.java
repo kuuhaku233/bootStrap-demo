@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -44,6 +45,11 @@ public class SysUserServiceImpl implements SysUserService {
     //验证手机号是否存在
     public boolean getUserPhoneYanZheng(String phone){
         return sud.getUserPhoneYanZheng(phone);
+    }
+
+    @Override
+    public List<SysUserEntity> getUserInfo(String idList) {
+        return sud.getUserInfo(idList);
     }
 
 

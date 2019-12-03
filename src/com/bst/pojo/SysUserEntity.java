@@ -28,6 +28,16 @@ public class SysUserEntity {
     private Integer organizeid;
     private Integer opid;
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    private String salt;
+
     public void setUid(int uid) {
         this.uid = uid;
     }

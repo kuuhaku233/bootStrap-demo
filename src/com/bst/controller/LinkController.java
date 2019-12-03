@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/link/")
 public class LinkController {
 
+    @RequestMapping("/toindex")
+    public String getIndex(){
+        return "index";
+    }
     @RequestMapping("/tosyspower")
     public String getSysPower(){
         return "syspower";
@@ -40,6 +44,11 @@ public class LinkController {
     @RequestMapping("/tonopower")
     public String getNopower(){
         return "nopower";
+    }
+
+    @RequestMapping("/tomap")
+    public String getMap(){
+        return "map";
     }
 
 }

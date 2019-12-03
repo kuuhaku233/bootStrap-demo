@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+    <!--开始shiro注解-->
+    <aop:config proxy-target-class="true"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    <!-- 对应于web.xml中配置的那个shiroFilter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
+        <property name="loginUrl" value="/login.jsp"/>
+        <!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+        <!--<property name="successUrl" value="/" ></property>-->
+        <!-- 用户访问未对其授权的资源时，所显示的连接 -->
+        <property name="unauthorizedUrl" value="/jsp/nopower.jsp"/>
+
+        <property name="filterChainDefinitions">
+            <value>
+                /login.jsp = anon
+                /system/login = anon
+                /**/*.html = anon
+                /**/*.js = anon
+                /**/*.css = anon
+                /**/*.png = anon
+                /**/*.jpg = anon
+                /**/*.gif = anon
+                /**/*.eot = anon
+                /**/*.svg = anon
+                /**/*.ttf = anon
+                /**/*.woff = anon
+                /**/* = authc,urlfilter
+            </value>
+        </property>
+        <!--自定义filter拦截手动输入的url-->
+        <property name="filters">
+            <map>
+                <entry key="urlfilter" value-ref="checkNoUrl"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <!-- Shiro生命周期处理器-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+
+    <!-- 缓存管理 -->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <!-- session的失效时长，单位毫秒 -->
+        <property name="globalSessionTimeout" value="1800000"/>
+        <!-- 删除失效的session -->
+        <property name="deleteInvalidSessions" value="true"/>
+    </bean>
+    <!-- Shiro安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"></property>
+        <!--缓存管理-->
+        <property name="cacheManager" ref="shiroCacheManager"></property>
+        <!-- 会话管理 -->
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+    <!-- 自定义 Relam -->
+    <bean id="myRealm" class="com.bst.realm.JdbcRealm">
+        <!-- 如果不加入密码匹配的操作，密码就不会存在 -->
+        <!-- 加入了密码匹配器之后，就会默认将前台传递过来的密码自动MD5加密 -->
+        <!--<property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                &lt;!&ndash; 加密的方式 &ndash;&gt;
+                <constructor-arg index="0" type="java.lang.String" value="MD5" />
+                &lt;!&ndash; 加密的次数，默认是1次 &ndash;&gt;
+                <property name="hashIterations" value="1"/>
+            </bean>
+        </property>-->
+
+    </bean>
+    <!--自定义filter-->
+    <!-- 自定义登录验证过滤器 -->
+    <bean id="checkNoUrl" class="com.bst.filter.CheckNoUrlFilter"></bean>
+
+    <!--shiro加密配置-->
+    <!-- <bean id="hashedCredentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher"> </bean>-->
+    <!--如果遇到这种情况不需要跳转别的页面而只需要返回一个结果给客户端，则需要自定义此处的-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.apache.shiro.authz.UnauthorizedException">/unauthorized.jsp</prop>
+            </props>
+        </property>
+    </bean>-->
+
+</beans>

@@ -12,7 +12,7 @@
     <!-- 加载spring的配置文件 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring-*.xml</param-value>
+        <param-value>classpath:spring-core.xml</param-value>
     </context-param>
 
     <!-- springMVC的配置文件  -->
@@ -45,13 +45,18 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <!-- servlet 过滤器-->
-    <!--<filter>
-        <filter-name>PowerFilter</filter-name>
-        <filter-class>com.bst.filter.PowerFilter</filter-class>
+
+    <!--配置shiro的过滤器-->
+    <filter>
+        <filter-name>shiroFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </filter>
     <filter-mapping>
-        <filter-name>PowerFilter</filter-name>
+        <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 </web-app>

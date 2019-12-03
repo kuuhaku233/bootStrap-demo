@@ -61,6 +61,19 @@
             <!--===================================================-->
             <div id="page-content">
 
+
+
+
+                <!-- Morris JS Full Content -->
+                <!---------------------------------->
+                <div class="panel">
+                    <div class="panel-body">
+                        <div id="echar3" class="morris-full-content" style="height: 800px;width: 100%"></div>
+                    </div>
+                </div>
+                <!---------------------------------->
+
+
                 <div class="row">
                     <div class="col-md-6">
 
@@ -96,24 +109,6 @@
 
                     </div>
                 </div>
-
-
-                <!-- Morris JS Full Content -->
-                <!---------------------------------->
-                <div class="panel">
-                    <div class="panel-body">
-                        <div id="demo-morris-area-legend-full" class="text-center"></div>
-                        <div id="demo-morris-area-full" class="morris-full-content" style="height: 300px"></div>
-                        <div class="">
-                            <h4>Morris JS Full Content</h4>
-                            <p>Please make sure to add class <code>morris-full-content</code> to display the chart full
-                                content.</p>
-                        </div>
-                    </div>
-                </div>
-                <!---------------------------------->
-
-
                 <div class="row">
                     <div class="col-md-7">
 
@@ -201,6 +196,7 @@
 
 <script src="js/echarts.js"></script>
 <script src="js/echarts.min.js"></script>
+<script src="js/map.js"></script>
 <!--BootstrapJS [ RECOMMENDED ]-->
 <script src="js/bootstrap.min.js"></script>
 
@@ -229,13 +225,13 @@
         "model": {
             jsonPath:
                 "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
-            "scale": 0.8
+            "scale": 0.7 //调比例
         }, "display": {
             "position": "left", "width": 200, "height": 270,
-            "hOffset": 40, "vOffset": 20,
+            "hOffset": 30, "vOffset": 20,
 
         }, "mobile": {"show": true, "scale": 0.5},
-        "react": {opacity: 0.8},
+        "react": {opacity: 0.6}, //设置透明度
         dialog: {
             // 开启对话框
             enable: true,
@@ -253,7 +249,7 @@
     });
 
 </script>
-<%-- Echars的构建 --%>
+<%-- Echars图形的构建 --%>
 <script>
 	var myChart = echarts.init(document.getElementById('echars-bar1'));
 	//配置项 一个json对象
@@ -324,8 +320,6 @@
         url:"/index/salbar",
         success:function (data) {
             for (var i = 0; i < data.resource.length; i++) {
-                console.log("reid:"+data.resource[i].reid)
-                console.log("reopjigouid:"+data.resource[i].reopjigouid)
                 myChart2.setOption({
                     xAxis: {
                         data: data.resource[i].reopjigouid
@@ -340,6 +334,8 @@
         }
     });
 </script>
+<script>
 
+</script>
 </body>
 </html>

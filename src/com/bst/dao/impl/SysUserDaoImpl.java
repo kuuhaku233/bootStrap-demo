@@ -14,6 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -110,6 +111,26 @@ public class SysUserDaoImpl implements SysUserDao {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<SysUserEntity> getUserInfo(String idList) {
+        String rkid[]=idList.split(",");
+        //如果第一个值等于all，表示要导出所有数据
+        if(rkid[0].equals("all")){
+            String hql="from SysUserEntity";
+            Query query=getSession().createQuery(hql);
+            return query.list();
+        }else{
+            List<Integer> rkids= new ArrayList<Integer>();
+            for(String rk:rkid){
+                rkids.add(Integer.valueOf(rk));
+            }
+            String hql="from SysUserEntity where uid in (:idList)";
+            Query query=getSession().createQuery(hql);
+            query.setParameterList("idList",rkids);
+            return query.list();
+        }
     }
 
 }

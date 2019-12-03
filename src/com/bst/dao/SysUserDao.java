@@ -23,4 +23,7 @@ public interface SysUserDao {
 
     //验证手机号是否存在
     public boolean getUserPhoneYanZheng(String phone);
+
+    //导出excle表格
+    List<SysUserEntity> getUserInfo(String idList);
 }
