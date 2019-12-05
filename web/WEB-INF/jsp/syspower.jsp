@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <%
@@ -130,7 +131,9 @@
                                     </div>
                                     <ul id="demo-mail-list" class="mail-list pad-top bord-top">
                                         <div class="mar-btm" id="btntest1">
+                                            <shiro:hasPermission name="../link/save_btn">
                                             <button class="btn btn-primary" id="savepower">保存</button>
+                                            </shiro:hasPermission>
                                             <button class="btn btn-danger">导出excel</button>
                                         </div>
                                         <table id="resource-table" class="table table-striped table-bordered"

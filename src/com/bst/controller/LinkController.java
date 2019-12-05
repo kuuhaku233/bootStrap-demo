@@ -37,7 +37,7 @@ public class LinkController {
     @RequestMapping("logout")
     public String SysLogOut(HttpSession session){
         session.invalidate();
-        return "login";
+        return "/login";
     }
 
 

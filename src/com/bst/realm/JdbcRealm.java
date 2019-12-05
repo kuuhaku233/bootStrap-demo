@@ -3,6 +3,7 @@ package com.bst.realm;
 import com.bst.pojo.Resource;
 import com.bst.pojo.SysUserEntity;
 import com.bst.service.LoginService;
+import com.bst.service.SysResourceService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -21,6 +22,8 @@ public class JdbcRealm extends AuthorizingRealm {
 
     @Autowired
     private LoginService ls;
+    @Autowired
+    private SysResourceService sysResourceService;
 
     //可以注入进来密码进行验证，这样进行判断是用户名错了，还是密码错了
 
@@ -35,7 +38,7 @@ public class JdbcRealm extends AuthorizingRealm {
         //获取身份信息
         SysUserEntity su= (SysUserEntity) principalCollection.getPrimaryPrincipal();
         //数据库查询权限信息
-        List<Resource> listres=ls.getUserPower();
+        List<Resource> listres=sysResourceService.getRoleLinkByRoleId(su.getRoleid());
         if(listres==null){
             return null;
         }else{

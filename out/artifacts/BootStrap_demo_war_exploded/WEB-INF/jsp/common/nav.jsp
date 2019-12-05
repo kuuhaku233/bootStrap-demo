@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="shiro"  uri="http://shiro.apache.org/tags" %>
 <nav id="mainnav-container">
     <div id="mainnav">
         <div id="mainnav-menu-wrap">
@@ -83,7 +84,32 @@
                             </a>
                         </li>
                         <li class="list-divider"></li>
+                        <shiro:hasPermission name="javascript:void(0)">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <i class="myfont icon-yuanquyunwei"></i>
+                                    <span class="menu-title">系统管理</span>
+                                </a>
+                                <!--Submenu-->
+                                <ul class="collapse in">
+                                    <shiro:hasPermission name="../link/tosysuser">
+                                        <li><a href="../link/tosysuser">用户管理</a></li>
+                                    </shiro:hasPermission>
+                                    <shiro:hasPermission name="../link/tosysrole">
+                                        <li><a href="/link/tosysrole">角色管理</a></li>
+                                    </shiro:hasPermission>
+                                    <shiro:hasPermission name="../link/tosysresource">
+                                        <li><a href="/link/tosysresource">资源管理</a></li>
+                                    </shiro:hasPermission>
+                                    <shiro:hasPermission name="../link/tosyspower">
+                                        <li><a href="/link/tosyspower">权限管理</a></li>
+                                    </shiro:hasPermission>
+                                </ul>
+                            </li>
+                            <li class="list-divider"></li>
+                        </shiro:hasPermission>
                     </ul>
+
 
 
                     <!--Widget-->
@@ -136,6 +162,7 @@
     </div>
 </nav>
 <script src="/bst/js/jquery.min.js"></script>
+<%--
 <script>
     $(function () {
         var resource =${sessionScope.RESOURCES};
@@ -196,5 +223,28 @@
             $("#shouye").removeAttr("class");
             return;
         }
+    })
+</script>--%>
+<%-- 鼠标单击触发事件 --%>
+<script>
+    $(function () {
+        $("#mainnav-menu a").each(function () {
+            var ahref=$(this).attr("href").substring($(this).attr("href").lastIndexOf("/"));
+
+
+            if(ahref.indexOf("toindex")!=-1){
+                $("#shouye").attr("class","active-sub active");
+                return
+            }
+            var lhref1=window.location.href;
+            var lhref=lhref1.substring(lhref1.lastIndexOf("/"))
+
+            if(lhref==ahref){
+                $(this).parent().attr("class","active-link");
+                $(this).parent().parent().parent().attr("class","active-sub active");
+                $("#shouye").removeAttr("class");
+                return;
+            }
+        })
     })
 </script>

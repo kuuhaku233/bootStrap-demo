@@ -60,16 +60,16 @@ public class LoginController {
             //获取认证后的权限信息
             //subject.isPermitted("user:select");
             session.setAttribute("userInfo",su1);
-            List<Resource>listres= sysResourceService.getRoleLinkByRoleId(su1.getRoleid());
+           /* List<Resource>listres= sysResourceService.getRoleLinkByRoleId(su1.getRoleid());
             ObjectMapper mapper = new ObjectMapper();
             String powerjson=mapper.writeValueAsString(listres);
             //放入一个session字符串，前台页面遍历使用
-            session.setAttribute("RESOURCES",powerjson);
+            session.setAttribute("RESOURCES",powerjson);*/
 
             return "index";
 
         }else{
-            return "../login.jsp";
+            return "/login.jsp";
         }
 
     }

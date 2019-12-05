@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
     String path = request.getContextPath(); //  path = "/travel"
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/bst/";
@@ -90,7 +91,9 @@
                 <div class="panel">
                     <div class="panel-body">
                         <div class="mar-btm">
+                            <shiro:hasPermission name="../link/add">
                             <button class="btn btn-primary" id="add">新增</button>
+                            </shiro:hasPermission>
                             <button class="btn btn btn-danger" id="batchdelete">导出excel</button>
                         </div>
                         <div class="alert alert-mint" style="text-align: center;display: none" id="quanxuantishi">
@@ -540,8 +543,8 @@
                 {
                     data: null,
                     orderable: false,
-                    defaultContent: '<a href="javascript::##" class="xiugai" ><i class="myfont icon-tianxie"></i></a>' +
-                        '<a href="javascript::##" class="shanchu" ><i class="myfont icon-shanchu"></i></a>'
+                    defaultContent: '<shiro:hasPermission name="../link/update_btn"><a href="javascript::##" class="xiugai" ><i class="myfont icon-tianxie"></i></a></shiro:hasPermission>' +
+                        '<shiro:hasPermission name="../link/delete_btn"><a href="javascript::##" class="shanchu" ><i class="myfont icon-shanchu"></i></a></shiro:hasPermission>'
                 }
             ],
             language: {

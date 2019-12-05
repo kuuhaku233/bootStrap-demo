@@ -40,7 +40,7 @@ public class CheckNoUrlFilter extends AuthorizationFilter {
         if (!doFilter) {
             //获取session中的用户信息
             HttpSession session = httpServletRequest.getSession();
-            SysUserEntity su = (SysUserEntity) session.getAttribute("USERINFO");
+            SysUserEntity su = (SysUserEntity) session.getAttribute("userInfo");
             //根据session中的值进行判断
             if (su != null) {
 
@@ -55,12 +55,6 @@ public class CheckNoUrlFilter extends AuthorizationFilter {
 
                 doFilter = true;
                 return doFilter;
-            } else {
-
-                    httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login.jsp");
-
-
-
             }
         }
         return doFilter;

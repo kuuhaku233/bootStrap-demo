@@ -25,6 +25,7 @@
 
     <!--字体图标-->
     <link href="css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="css/demo/myfonts/iconfont.css" rel="stylesheet">
 
     <!--页面加载进度条-->
     <link href="plugins/pace/pace.min.css" rel="stylesheet">
