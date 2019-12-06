@@ -30,10 +30,10 @@ public class Logger {
         SysUserEntity su=(SysUserEntity) session.getAttribute("userinfo");
 
         if(su!=null) {
-           /* System.out.println("操作用户："+su.getUsername());
-            System.out.println("角色信息："+su.getRoleid());*/
+            System.out.println("操作用户："+su.getUsername());
+            System.out.println("角色信息："+su.getRoleid());
         }
-//        System.out.println("业务开始时间："+beginTime);
+        System.out.println("业务开始时间："+beginTime);
     }
 
     /**
@@ -49,9 +49,9 @@ public class Logger {
         //获取操作的方法名（功能模块）
         String logmess=joinPoint.getSignature().getName();
         Date endTime=new Date();
-        /*System.out.println("业务结束时间："+endTime);
+        System.out.println("业务结束时间："+endTime);
         System.out.println("业务模块："+logtype);
-        System.out.println("功能模块："+logmess);*/
+        System.out.println("功能模块："+logmess);
 
     }
 
